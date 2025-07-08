@@ -1,1 +1,1 @@
-web: gunicorn fitlog_project.wsgi --log-file -
+web: gunicorn soultrack_project.wsgi --log-file -
