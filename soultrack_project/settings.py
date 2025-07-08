@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-6!%=26-wg35++kw3&!_do_idex!zqmv%s8sk8p7514&*-ve9g7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'fitlog-app-ivo-6b411ba5300f.herokuapp.com'
+]
 
 
 # Application definition
