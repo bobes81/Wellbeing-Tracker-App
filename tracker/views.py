@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Workout
-from .forms import WorkoutForm
+from .models import Workout, MoodEntry
+from .forms import WorkoutForm, MoodEntryForm
 
 def workout_list(request):
     workouts = Workout.objects.all()
@@ -37,4 +37,18 @@ def workout_delete(request, pk):
         workout.delete()
         return redirect('workout_list')
     return render(request, 'tracker/workout_confirm_delete.html', {'workout': workout})
+
+def mood_list(request):
+    moods = MoodEntry.objects.all().order_by('-date')
+    return render(request, 'tracker/mood_list.html', {'moods': moods})
+
+def mood_create(request):
+    if request.method == 'POST':
+        form = MoodEntryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('mood_list')
+    else:
+        form = MoodEntryForm()
+    return render(request, 'tracker/mood_form.html', {'form': form})
 
