@@ -5,7 +5,7 @@ class Workout(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateField()
     duration = models.IntegerField(help_text="Duration in minutes")
-    notes = models.TextField(blank=True)
+    notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.title} on {self.date}"
@@ -23,7 +23,7 @@ class MoodEntry(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField()
     mood = models.CharField(max_length=50, choices=MOOD_CHOICES)
-    note = models.TextField(blank=True)
+    note = models.TextField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Mood Log"

@@ -1,10 +1,10 @@
 from django import forms
-from .models import WorkoutEntry, MoodEntry
+from .models import Workout, MoodEntry
 
-class WorkoutEntryForm(forms.ModelForm):
+class WorkoutForm(forms.ModelForm):  # změněno z WorkoutEntryForm na WorkoutForm
     class Meta:
-        model = WorkoutEntry
-        fields = ['date', 'workout_type', 'duration_minutes', 'intensity', 'bmi']
+        model = Workout
+        fields = ['title', 'date', 'duration', 'notes']
 
 class MoodEntryForm(forms.ModelForm):
     class Meta:

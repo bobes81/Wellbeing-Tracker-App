@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Your Mood Entries 🌤️</h2>
+
+  {% if moods %}
+    <ul>
+      {% for mood in moods %}
+        <li>
+          <strong>{{ mood.date }}:</strong> {{ mood.mood }}<br>
+          <em>{{ mood.note }}</em>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No mood entries yet. 🕊️</p>
+  {% endif %}
+{% endblock %}
