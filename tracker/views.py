@@ -52,3 +52,6 @@ def mood_create(request):
         form = MoodEntryForm()
     return render(request, 'tracker/mood_form.html', {'form': form})
 
+def home(request):
+    return render(request, 'tracker/home.html')
+
