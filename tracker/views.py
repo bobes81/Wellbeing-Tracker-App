@@ -39,7 +39,7 @@ def workout_delete(request, pk):
     return render(request, 'tracker/workout_confirm_delete.html', {'workout': workout})
 
 def mood_list(request):
-    moods = MoodEntry.objects.all().order_by('-date')
+    moods = MoodEntry.objects.order_by('-date')
     return render(request, 'tracker/mood_list.html', {'moods': moods})
 
 def mood_create(request):
