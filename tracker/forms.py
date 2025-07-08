@@ -15,3 +15,4 @@ class MoodEntryForm(forms.ModelForm):
             'mood': forms.Select(),
             'note': forms.Textarea(attrs={'rows': 3}),
         }
+# Trigger redeploy
