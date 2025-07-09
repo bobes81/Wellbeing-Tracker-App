@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}SoulTrack{% endblock %}</title>
+    <title>{% block title %}FitLog{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
-        <h1>SoulTrack</h1>
+        <h1>FitLog App</h1>
+        <nav>
+            <a href="{% url 'workout_list' %}">Home</a>
+            <a href="{% url 'workout_create' %}">New Workout</a>
+        </nav>
+        <hr>
     </header>
 
     <main>
@@ -16,7 +22,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 SoulTrack</p>
+        <p>&copy; 2025 FitLog</p>
     </footer>
 </body>
 </html>
