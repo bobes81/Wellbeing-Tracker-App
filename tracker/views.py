@@ -46,7 +46,9 @@ def mood_create(request):
     if request.method == 'POST':
         form = MoodEntryForm(request.POST)
         if form.is_valid():
-            form.save()
+            mood_entry = form.save(commit=False)
+            mood_entry.user = request.user  # Přidá přihlášeného uživatele
+            mood_entry.save()
             return redirect('mood_list')
     else:
         form = MoodEntryForm()
