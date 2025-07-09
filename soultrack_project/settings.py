@@ -77,13 +77,9 @@ WSGI_APPLICATION = 'soultrack_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# ✅ DATABASE (Heroku = PostgreSQL, local = SQLite fallback)
+# ✅ DATABASE (Heroku = PostgreSQL)
 DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
-        conn_max_age=600,
-        conn_health_checks=True
-    )
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 
