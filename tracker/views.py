@@ -3,8 +3,7 @@ from .models import Workout, MoodEntry
 from .forms import WorkoutForm, MoodEntryForm
 
 def workout_list(request):
-    workouts = Workout.objects.all()
-    return render(request, 'tracker/workout_list.html', {'workouts': workouts})
+    return render(request, 'tracker/workout_list.html')
 
 def workout_detail(request, pk):
     workout = get_object_or_404(Workout, pk=pk)
