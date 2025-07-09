@@ -11,14 +11,7 @@ def workout_detail(request, pk):
     return render(request, 'tracker/workout_detail.html', {'workout': workout})
 
 def workout_create(request):
-    if request.method == "POST":
-        form = WorkoutForm(request.POST)
-        if form.is_valid():
-            workout = form.save()
-            return redirect('workout_detail', pk=workout.pk)
-    else:
-        form = WorkoutForm()
-    return render(request, 'tracker/workout_form.html', {'form': form})
+    return render(request, 'tracker/workout_form.html')  # použij přesný název šablony, kterou máš
 
 def workout_edit(request, pk):
     workout = get_object_or_404(Workout, pk=pk)
