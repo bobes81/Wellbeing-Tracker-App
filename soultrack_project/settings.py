@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-import django_heroku
 import dj_database_url  # Added for database configuration
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -100,4 +99,8 @@ if DEBUG:
     }
 
 # Activate Django-Heroku magic
-django_heroku.settings(locals())
+try:
+    import django_heroku
+    django_heroku.settings(locals())
+except ImportError:
+    pass
