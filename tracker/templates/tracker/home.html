@@ -1,12 +1,6 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-5 text-center">
-    <h1 class="display-4">Welcome to <strong>FitLog</strong></h1>
-    <p class="lead">Track your wellbeing, day by day. Private, simple, and powerful.</p>
-    <div class="mt-4">
-        <a class="btn btn-primary btn-lg mx-2" href="{% url 'login' %}">Login</a>
-        <a class="btn btn-success btn-lg mx-2" href="{% url 'register' %}">Register</a>
-    </div>
-</div>
+  <h1>Welcome to FitLog</h1>
+  <p>Your personal wellbeing tracker.</p>
 {% endblock %}
