@@ -1,11 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'tracker/base.html' %}
 
 {% block content %}
-  <div class="container mt-5">
-    <h1 class="display-4">Welcome to SoulTrack 🌿</h1>
-    <p class="lead">Your personal wellbeing tracker is ready.</p>
-
-    <a href="{% url 'workout_list' %}" class="btn btn-primary mt-3">See All Workouts</a>
-    <a href="{% url 'mood_list' %}" class="btn btn-success mt-3 ms-2">See Mood Entries</a>
-  </div>
+  <h1>Welcome to FitLog</h1>
+  <p>Your personal wellbeing tracker.</p>
 {% endblock %}

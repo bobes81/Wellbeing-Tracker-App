@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Workout, MoodEntry
 from .forms import WorkoutForm, MoodEntryForm
 
+def home(request):
+    return render(request, 'tracker/home.html')
+
 def workout_list(request):
     return render(request, 'tracker/workout_list.html')
 
@@ -10,7 +13,11 @@ def workout_detail(request, pk):
     return render(request, 'tracker/workout_detail.html', {'workout': workout})
 
 def workout_create(request):
-    return render(request, 'tracker/workout_form.html')  # použij přesný název šablony, kterou máš
+    form = WorkoutForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('workout_list')
+    return render(request, 'tracker/workout_form.html', {'form': form})
 
 def workout_edit(request, pk):
     workout = get_object_or_404(Workout, pk=pk)
@@ -35,17 +42,9 @@ def mood_list(request):
     return render(request, 'tracker/mood_list.html', {'moods': moods})
 
 def mood_create(request):
-    if request.method == 'POST':
-        form = MoodEntryForm(request.POST)
-        if form.is_valid():
-            mood_entry = form.save(commit=False)
-            mood_entry.user = request.user  # Přidá přihlášeného uživatele
-            mood_entry.save()
-            return redirect('mood_list')
-    else:
-        form = MoodEntryForm()
+    form = MoodEntryForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('mood_list')
     return render(request, 'tracker/mood_form.html', {'form': form})
-
-def home(request):
-    return render(request, 'tracker/home.html')
 
