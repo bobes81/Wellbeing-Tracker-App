@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tracker',
     'accounts',  # Added accounts
+    'widget_tweaks',  # Added widget_tweaks
 ]
 
 MIDDLEWARE = [
