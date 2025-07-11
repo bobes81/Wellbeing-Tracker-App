@@ -54,10 +54,10 @@ def add_mood_entry(request):
     if request.method == 'POST':
         form = MoodEntryForm(request.POST)
         if form.is_valid():
-            mood_entry = form.save(commit=False)
-            mood_entry.user = request.user
-            mood_entry.save()
-            return redirect('home')  # nebo kam chceš přesměrovat
+            mood = form.save(commit=False)
+            mood.user = request.user
+            mood.save()
+            return redirect('mood_list')
     else:
         form = MoodEntryForm()
     return render(request, 'tracker/add_mood_entry.html', {'form': form})
