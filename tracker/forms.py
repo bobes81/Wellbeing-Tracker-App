@@ -1,13 +1,9 @@
 from django import forms
-from .models import Workout, MoodEntry
-
-class WorkoutForm(forms.ModelForm):
-    class Meta:
-        model = Workout
-        fields = ['title', 'date', 'duration', 'notes']
+from .models import MoodEntry, Workout
 
 class MoodEntryForm(forms.ModelForm):
     class Meta:
         model = MoodEntry
-        fields = ['date', 'mood', 'note']
-# Trigger redeploy
+        fields = ['mood', 'date', 'note']  # Added 'note'
+
+class WorkoutForm
