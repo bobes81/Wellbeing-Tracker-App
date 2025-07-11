@@ -6,4 +6,7 @@ class MoodEntryForm(forms.ModelForm):
         model = MoodEntry
         fields = ['mood', 'date', 'note']  # Added 'note'
 
-class WorkoutForm
+class WorkoutForm(forms.ModelForm):
+    class Meta:
+        model = Workout
+        fields = ['date', 'activity', 'duration', 'note']  # Added 'note'
