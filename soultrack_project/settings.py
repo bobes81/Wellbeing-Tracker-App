@@ -18,7 +18,7 @@ SECRET_KEY = 'django-insecure-6!%=26-wg35++kw3&!_do_idex!zqmv%s8sk8p7514&*-ve9g7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fitlog-app-ivo.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['fitlog-app-ivo-6b411ba5300f.herokuapp.com', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -110,5 +110,5 @@ if DEBUG:
     }
 
 # Activate Django-Heroku magic
-if django_heroku:
-    django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
