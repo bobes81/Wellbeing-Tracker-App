@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Workout, MoodEntry
+from .models import Workout, Mood  # Removed MoodEntry
 
 admin.site.register(Workout)
-admin.site.register(MoodEntry)
+admin.site.register(Mood)  # Register Mood instead of MoodEntry

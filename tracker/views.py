@@ -1,8 +1,44 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.timezone import now
-from .models import Workout
-from .forms import WorkoutForm
+from django.db import models
+from django.contrib.auth.models import User
+from .models import Workout, Mood
+from .forms import WorkoutForm, MoodForm
+
+WORKOUT_CHOICES = [
+    ('Cardio', 'Cardio'),
+    ('Strength', 'Strength'),
+    ('Flexibility', 'Flexibility'),
+    ('Balance', 'Balance'),
+]
+
+MOOD_CHOICES = [
+    (1, 'Very Bad'),
+    (2, 'Bad'),
+    (3, 'Neutral'),
+    (4, 'Good'),
+    (5, 'Very Good'),
+]
+
+class Workout(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateField()
+    type = models.CharField(max_length=20, choices=WORKOUT_CHOICES)
+    duration = models.PositiveIntegerField(help_text="Duration in minutes")
+    notes = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.date} - {self.type}"
+
+class Mood(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateField()
+    mood_level = models.IntegerField(choices=MOOD_CHOICES)
+    note = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.date} - Mood: {self.mood_level}"
 
 def home(request):
     return render(request, 'tracker/home.html', {'now': now()})
@@ -44,3 +80,21 @@ def delete_workout(request, workout_id):
         workout.delete()
         return redirect('workout_list')
     return render(request, 'tracker/delete_workout.html', {'workout': workout})
+
+@login_required
+def mood_list(request):
+    moods = Mood.objects.filter(user=request.user).order_by('-date')
+    return render(request, 'tracker/mood_list.html', {'moods': moods})
+
+@login_required
+def mood_create(request):
+    if request.method == 'POST':
+        form = MoodForm(request.POST)
+        if form.is_valid():
+            mood = form.save(commit=False)
+            mood.user = request.user
+            mood.save()
+            return redirect('mood_list')
+    else:
+        form = MoodForm()
+    return render(request, 'tracker/mood_form.html', {'form': form})

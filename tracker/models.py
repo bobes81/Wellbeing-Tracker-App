@@ -12,7 +12,6 @@ class Mood(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.date} - Mood: {self.mood_level}"
 
-
 class Workout(models.Model):
     WORKOUT_CHOICES = [
         ('Cardio', 'Cardio'),

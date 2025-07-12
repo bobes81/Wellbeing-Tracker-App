@@ -1,12 +1,12 @@
 from django import forms
-from .models import MoodEntry, Workout
-
-class MoodEntryForm(forms.ModelForm):
-    class Meta:
-        model = MoodEntry
-        fields = ['mood', 'date', 'note']  # Added 'note'
+from .models import Workout, Mood
 
 class WorkoutForm(forms.ModelForm):
     class Meta:
         model = Workout
-        fields = ['date', 'activity', 'duration', 'note']  # Added 'note'
+        fields = ['date', 'type', 'duration', 'notes']
+
+class MoodForm(forms.ModelForm):
+    class Meta:
+        model = Mood
+        fields = ['date', 'mood_level', 'note']
