@@ -21,15 +21,14 @@ ALLOWED_HOSTS = ['fitlog-app-ivo.herokuapp.com']
 
 # Application definition
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'django.contrib.admin',  # Verified admin app
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tracker',
-    'accounts',  # Added accounts
-    'widget_tweaks',  # Added widget_tweaks
+    'accounts',
 ]
 
 MIDDLEWARE = [
