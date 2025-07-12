@@ -11,7 +11,6 @@ class Workout(models.Model):
         ('Cycling', 'Cycling'),
         ('Other', 'Other'),
     ]
-
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField()
     type = models.CharField(max_length=20, choices=WORKOUT_CHOICES)
