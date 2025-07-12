@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("TESTING DIRECT RESPONSE — IF YOU SEE THIS, VIEWS ARE WORKING.")
+    return HttpResponse("🌟 YES! HEROKU DEPLOY WORKED — VIEW IS ACTIVE 🌟")
 
 # ostatní funkce klidně dočasně vynecháme pro test
