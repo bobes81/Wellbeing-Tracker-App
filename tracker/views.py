@@ -2,9 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Workout, MoodEntry
 from .forms import WorkoutForm, MoodEntryForm
+from datetime import datetime  # ✅ Přidáno pro zobrazení času
 
 def home(request):
-    return render(request, 'tracker/home.html')
+    return render(request, 'tracker/home.html', {'now': datetime.now()})  # ✅ Zobrazí čas pro ověření šablony
 
 def workout_list(request):
     return render(request, 'tracker/workout_list.html')
