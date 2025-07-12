@@ -1,6 +1,20 @@
+<!-- filepath: /Users/ivokimpl/Desktop/fitlog/tracker/templates/tracker/home.html -->
 {% extends 'base.html' %}
 
 {% block content %}
   <h1>Welcome to FitLog</h1>
   <p>Your personal wellbeing tracker.</p>
 {% endblock %}
+
+# filepath: /Users/ivokimpl/Desktop/fitlog/tracker/views.py
+def home(request):
+    return render(request, 'tracker/home.html')
+
+# filepath: /Users/ivokimpl/Desktop/fitlog/soultrack_project/urls.py
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('tracker.urls')),  # Verified inclusion of tracker URLs
+]
