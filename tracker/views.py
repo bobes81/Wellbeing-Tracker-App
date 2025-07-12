@@ -1,65 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-from .models import Workout, MoodEntry
-from .forms import WorkoutForm, MoodEntryForm
-from datetime import datetime  # ✅ Přidáno pro zobrazení času
+from django.http import HttpResponse
 
 def home(request):
-    return render(request, 'tracker/home.html', {'now': datetime.now()})  # ✅ Zobrazí čas pro ověření šablony
+    return HttpResponse("TESTING DIRECT RESPONSE — IF YOU SEE THIS, VIEWS ARE WORKING.")
 
-def workout_list(request):
-    return render(request, 'tracker/workout_list.html')
-
-def workout_detail(request, pk):
-    workout = get_object_or_404(Workout, pk=pk)
-    return render(request, 'tracker/workout_detail.html', {'workout': workout})
-
-def workout_create(request):
-    form = WorkoutForm(request.POST or None)
-    if request.method == 'POST' and form.is_valid():
-        form.save()
-        return redirect('workout_list')
-    return render(request, 'tracker/workout_form.html', {'form': form})
-
-def workout_edit(request, pk):
-    workout = get_object_or_404(Workout, pk=pk)
-    if request.method == "POST":
-        form = WorkoutForm(request.POST, instance=workout)
-        if form.is_valid():
-            workout = form.save()
-            return redirect('workout_detail', pk=workout.pk)
-    else:
-        form = WorkoutForm(instance=workout)
-    return render(request, 'tracker/workout_form.html', {'form': form})
-
-def workout_delete(request, pk):
-    workout = get_object_or_404(Workout, pk=pk)
-    if request.method == "POST":
-        workout.delete()
-        return redirect('workout_list')
-    return render(request, 'tracker/workout_confirm_delete.html', {'workout': workout})
-
-def mood_list(request):
-    moods = MoodEntry.objects.order_by('-date')
-    return render(request, 'tracker/mood_list.html', {'moods': moods})
-
-def mood_create(request):
-    form = MoodEntryForm(request.POST or None)
-    if request.method == 'POST' and form.is_valid():
-        form.save()
-        return redirect('mood_list')
-    return render(request, 'tracker/mood_form.html', {'form': form})
-
-@login_required
-def add_mood_entry(request):
-    if request.method == 'POST':
-        form = MoodEntryForm(request.POST)
-        if form.is_valid():
-            mood = form.save(commit=False)
-            mood.user = request.user
-            mood.save()
-            return redirect('mood_list')
-    else:
-        form = MoodEntryForm()
-    return render(request, 'tracker/add_mood_entry.html', {'form': form})
-
+# ostatní funkce klidně dočasně vynecháme pro test
