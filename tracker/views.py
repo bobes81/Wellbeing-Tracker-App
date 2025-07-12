@@ -1,4 +1,5 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+from django.utils.timezone import now
 
 def home(request):
-    return HttpResponse("🌈 IT WORKS! — This is coming from views.py")
+    return render(request, 'tracker/home.html', {'now': now()})
