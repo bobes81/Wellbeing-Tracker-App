@@ -12,5 +12,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
 
-handler404 = "tracker.views.error_404"
-handler403 = "tracker.views.error_403"
+#handler404 = "tracker.views.error_404"
+#handler403 = "tracker.views.error_403"
