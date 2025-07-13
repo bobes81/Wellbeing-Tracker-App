@@ -13,7 +13,7 @@ class Workout(models.Model):
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField()
-    type = models.CharField(max_length=20, choices=WORKOUT_CHOICES)
+    type = models.CharField(max_length=100, default="Cardio")  # Updated default value
     duration = models.PositiveIntegerField(help_text="Duration in minutes")
     notes = models.TextField(blank=True)
 
