@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.timezone import now
 from django.db import models
 from django.contrib.auth.models import User
-from .models import Workout, Mood
+from .models import Workout, Mood  # Import models from models.py
 from .forms import WorkoutForm, MoodForm
 
 WORKOUT_CHOICES = [
