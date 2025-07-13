@@ -1,44 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.timezone import now
-from django.db import models
 from django.contrib.auth.models import User
 from .models import Workout, Mood  # Import models from models.py
 from .forms import WorkoutForm, MoodForm
-
-WORKOUT_CHOICES = [
-    ('Cardio', 'Cardio'),
-    ('Strength', 'Strength'),
-    ('Flexibility', 'Flexibility'),
-    ('Balance', 'Balance'),
-]
-
-MOOD_CHOICES = [
-    (1, 'Very Bad'),
-    (2, 'Bad'),
-    (3, 'Neutral'),
-    (4, 'Good'),
-    (5, 'Very Good'),
-]
-
-class Workout(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField()
-    type = models.CharField(max_length=20, choices=WORKOUT_CHOICES)
-    duration = models.PositiveIntegerField(help_text="Duration in minutes")
-    notes = models.TextField(blank=True)
-
-    def __str__(self):
-        return f"{self.user.username} - {self.date} - {self.type}"
-
-class Mood(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField()
-    mood_level = models.IntegerField(choices=MOOD_CHOICES)
-    note = models.TextField(blank=True)
-
-    def __str__(self):
-        return f"{self.user.username} - {self.date} - Mood: {self.mood_level}"
 
 def home(request):
     return render(request, 'tracker/home.html', {'now': now()})
