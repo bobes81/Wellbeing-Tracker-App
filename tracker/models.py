@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 class Workout(models.Model):
     WORKOUT_CHOICES = [
@@ -21,19 +22,18 @@ class Workout(models.Model):
         return f"{self.user.username} - {self.date} - {self.type}"
 
 class Mood(models.Model):
-    MOOD_CHOICES = [
-        ('happy', 'Happy'),
-        ('neutral', 'Neutral'),
-        ('sad', 'Sad'),
-        ('angry', 'Angry'),
-        ('tired', 'Tired'),
-        ('motivated', 'Motivated'),
+    MOOD_LEVEL_CHOICES = [
+        (1, 'Very Bad'),
+        (2, 'Bad'),
+        (3, 'Neutral'),
+        (4, 'Good'),
+        (5, 'Very Good'),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField(auto_now_add=True)
-    mood_type = models.CharField(max_length=20, choices=MOOD_CHOICES)
-    note = models.TextField(blank=True)
+    date = models.DateField(default=timezone.now)  # OPRAVA: pole je nyní editovatelné
+    mood_level = models.IntegerField(choices=MOOD_LEVEL_CHOICES)
+    notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.date} - {self.get_mood_type_display()}"
+        return f"{self.user.username} - {self.date} - {self.get_mood_level_display()}"
