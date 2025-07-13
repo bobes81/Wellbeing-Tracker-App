@@ -2,20 +2,22 @@
 {% load static %}
 
 {% block content %}
-  <div class="hero-section">
-    <img src="{% static 'images/fitlog_hero.png' %}" alt="FitLog Hero" class="hero-img">
-    <h1 class="display-4 fw-bold">Welcome to FitLog 🎯</h1>
-    <p class="lead">Track your wellbeing – moods & workouts</p>
-    <div class="btn-group">
-      <a href="{% url 'mood_list' %}" class="btn btn-primary btn-lg me-3">Mood Logs</a>
-      <a href="{% url 'workout_list' %}" class="btn btn-success btn-lg">Workout Logs</a>
-    </div>
+<div class="hero-section">
+  <img src="{% static 'images/fitlog_hero.png' %}" alt="FitLog Hero" class="hero-img">
+  <h1 class="display-4 fw-bold">Welcome to FitLog 🎯</h1>
+  <p class="lead">Track your wellbeing – moods & workouts</p>
+  <div class="btn-group">
+    <a href="{% url 'mood_list' %}" class="btn btn-primary btn-lg me-3">Mood Logs</a>
+    <a href="{% url 'workout_list' %}" class="btn btn-success btn-lg">Workout Logs</a>
   </div>
+</div>
 
-  <div class="info-card">
-    <h3><strong>Why use FitLog?</strong></h3>
-    <p>Log your emotional state & track your physical health to improve your overall wellbeing.</p>
-  </div>
+<div class="info-card">
+  <h3><strong>Why use FitLog?</strong></h3>
+  <p>Log your emotional state & track your physical health to improve your overall wellbeing.</p>
+</div>
 
-  <footer class="text-center mt-5">
-    <p class="text-muted
+<footer class="text-center mt-5">
+  <p class="text-muted">© 2025 FitLog App</p>
+</footer>
+{% endblock %}
