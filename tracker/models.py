@@ -14,7 +14,8 @@ class Workout(models.Model):
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField()
-    type = models.CharField(max_length=100, default="Cardio")  # Updated max_length from 20 to 100
+    type = models.CharField(max_length=100, default="Cardio")
+    activity = models.CharField(max_length=100, default="")  # ⬅️ Added new field
     duration = models.PositiveIntegerField(help_text="Duration in minutes")
     notes = models.TextField(blank=True)
 
