@@ -24,9 +24,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',  # <--- Nutné pro collectstatic
+    'django.contrib.staticfiles',
     'tracker',
-    'widget_tweaks',
+    'widget_tweaks',  # Ensure this is included
 ]
 
 MIDDLEWARE = [
