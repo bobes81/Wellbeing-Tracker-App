@@ -25,12 +25,8 @@ class WorkoutForm(forms.ModelForm):
 class MoodForm(forms.ModelForm):
     class Meta:
         model = Mood
-        fields = ['date', 'mood_level', 'note']
-        labels = {
-            'date': 'Mood Date',
-            'mood_level': 'Mood Level',
-            'note': 'Notes (optional)',
-        }
-        help_texts = {
-            'mood_level': '1 = Very Bad, 5 = Very Good',
+        fields = ['mood_type', 'note']  # Exclude 'date'
+        widgets = {
+            'mood_type': forms.Select(attrs={'class': 'form-control'}),
+            'note': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
