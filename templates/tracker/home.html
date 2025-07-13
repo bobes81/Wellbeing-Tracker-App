@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5">
+  <h1 class="display-4">Welcome to <span class="text-primary">FitLog</span> 🧘‍♂️</h1>
+  <p class="lead mb-4">Your personal wellbeing tracker — monitor your mood and workouts with ease.</p>
+
+  <div class="d-flex justify-content-center gap-3 mb-4">
+    <a href="{% url 'mood_list' %}" class="btn btn-outline-primary btn-lg px-5">
+      Mood Logs
+    </a>
+    <a href="{% url 'workout_list' %}" class="btn btn-outline-success btn-lg px-5">
+      Workouts
+    </a>
+  </div>
+
+  <div class="card mt-5 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title">Why use FitLog?</h5>
+      <ul class="list-unstyled mt-3">
+        <li>✅ Track your emotional wellbeing</li>
+        <li>✅ Log and manage your workouts</li>
+        <li>✅ Stay consistent and motivated</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
