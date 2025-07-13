@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.timezone import now
 from django.contrib.auth.models import User
-from .models import Workout, Mood  # Import models from models.py
+from .models import Workout, Mood
 from .forms import WorkoutForm, MoodForm
-from django.contrib.auth import login, logout
+from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -137,11 +137,7 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
-def logout_view(request):
-    logout(request)
-    return redirect('home')
-
-# Error handlers — FINAL VERSION
+# Error handlers
 def custom_404(request, exception):
     return render(request, 'errors/404.html', status=404)
 
