@@ -10,6 +10,10 @@
           <div>
             <strong>{{ workout.date }}</strong>: {{ workout.type }} – {{ workout.duration }} minutes
           </div>
+          <div>
+            <a href="{% url 'edit_workout' workout.pk %}" class="btn btn-sm btn-warning me-2">Edit</a>
+            <a href="{% url 'delete_workout' workout.pk %}" class="btn btn-sm btn-danger">Delete</a>
+          </div>
         </li>
       {% empty %}
         <li class="list-group-item">No workouts yet.</li>
