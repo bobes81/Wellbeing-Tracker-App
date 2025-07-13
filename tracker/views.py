@@ -4,6 +4,8 @@ from django.utils.timezone import now
 from django.contrib.auth.models import User
 from .models import Workout, Mood  # Import models from models.py
 from .forms import WorkoutForm, MoodForm
+from django.contrib.auth import login, logout
+from django.contrib.auth.forms import UserCreationForm
 
 def home(request):
     return render(request, 'tracker/home.html', {'now': now()})
@@ -63,8 +65,6 @@ def mood_create(request):
     else:
         form = MoodForm()
     return render(request, 'tracker/mood_form.html', {'form': form})
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
 
 def register(request):
     if request.method == 'POST':
@@ -76,3 +76,7 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
