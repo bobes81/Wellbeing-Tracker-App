@@ -76,6 +76,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/moods/'  # ⬅️ Added this line
+LOGIN_REDIRECT_URL = '/moods/'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
