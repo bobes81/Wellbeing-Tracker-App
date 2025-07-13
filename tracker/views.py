@@ -8,6 +8,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+import logging
 
 def home(request):
     return render(request, 'tracker/home.html', {'now': now()})
@@ -78,8 +79,13 @@ def add_mood(request):
 
 @login_required
 def mood_list(request):
-    moods = Mood.objects.filter(user=request.user).order_by('-date')
-    return render(request, 'tracker/mood_list.html', {'moods': moods})
+    try:
+        moods = Mood.objects.filter(user=request.user).order_by('-date')
+        return render(request, 'tracker/mood_list.html', {'moods': moods})
+    except Exception as e:
+        logger = logging.getLogger(__name__)
+        logger.error("Error in mood_list view: %s", str(e))
+        raise
 
 @login_required
 def edit_mood(request, pk):
