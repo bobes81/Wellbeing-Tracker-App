@@ -9,15 +9,9 @@
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <div>
             <strong>{{ workout.date }}</strong>: {{ workout.type }} – {{ workout.duration }} minutes
+            {% if workout.notes %}
+              <br><small>{{ workout.notes }}</small>
+            {% endif %}
           </div>
           <div>
-            <a href="{% url 'edit_workout' workout.pk %}" class="btn btn-sm btn-warning me-2">Edit</a>
-            <a href="{% url 'delete_workout' workout.pk %}" class="btn btn-sm btn-danger">Delete</a>
-          </div>
-        </li>
-      {% empty %}
-        <li class="list-group-item">No workouts yet.</li>
-      {% endfor %}
-    </ul>
-  </div>
-{% endblock %}
+            <a href="{% url 'edit_workout' workout.pk %}" class="btn btn-sm

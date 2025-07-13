@@ -8,9 +8,9 @@
       {% for mood in moods %}
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <div>
-            <strong>{{ mood.date }}</strong>: {{ mood.get_mood_type_display }}
-            {% if mood.note %}
-              <br><small>{{ mood.note }}</small>
+            <strong>{{ mood.date }}</strong>: {{ mood.get_mood_level_display }}
+            {% if mood.notes %}
+              <br><small>{{ mood.notes }}</small>
             {% endif %}
           </div>
           <div>
