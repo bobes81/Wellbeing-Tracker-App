@@ -29,25 +29,14 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
         <ul class="navbar-nav mb-2 mb-lg-0">
           {% if user.is_authenticated %}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-bs-toggle="dropdown">
-                Hi, {{ user.username }}
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                <li><a class="dropdown-item" href="{% url 'mood_list' %}">Mood Logs</a></li>
-                <li><a class="dropdown-item" href="{% url 'workout_list' %}">Workout Logs</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li>
-                  <form method="POST" action="{% url 'logout' %}">
-                      {% csrf_token %}
-                      <button type="submit" class="dropdown-item text-danger">Logout</button>
-                  </form>
-                </li>
-              </ul>
-            </li>
+            <p class="nav-item nav-link">Hi, {{ user.username }}!</p>
+            <form method="POST" action="{% url 'logout' %}" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-link nav-link" style="display:inline; padding:0;">Logout</button>
+            </form>
           {% else %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
           {% endif %}
         </ul>
       </div>

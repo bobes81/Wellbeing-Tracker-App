@@ -22,17 +22,18 @@ class Workout(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.date} - {self.type}"
 
+MOOD_CHOICES = [
+    (1, 'Very Low'),
+    (2, 'Low'),
+    (3, 'Neutral'),
+    (4, 'Good'),
+    (5, 'Very Good'),
+]
+
 class Mood(models.Model):
-    MOOD_LEVEL_CHOICES = [
-        (1, 'Very Bad'),
-        (2, 'Bad'),
-        (3, 'Neutral'),
-        (4, 'Good'),
-        (5, 'Very Good'),
-    ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField(default=timezone.now)
-    mood_level = models.IntegerField(choices=MOOD_LEVEL_CHOICES)
+    mood_level = models.IntegerField(choices=MOOD_CHOICES, default=3)  # ✅ Default value set
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
