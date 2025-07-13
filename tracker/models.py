@@ -32,7 +32,7 @@ class Workout(models.Model):
 
 class Mood(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField(default=timezone.now, editable=False)  # ✅ Prevent manual editing
+    date = models.DateField(default=timezone.now, editable=False)  # Auto-set, non-editable
     mood_level = models.IntegerField(choices=MOOD_CHOICES, default=3)
     notes = models.TextField(blank=True, null=True)
 
