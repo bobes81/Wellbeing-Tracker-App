@@ -1,28 +1,41 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<div class="container text-center mt-5">
-  <h1 class="display-4">Welcome to <span class="text-primary">FitLog</span> 🧘‍♂️</h1>
-  <p class="lead mb-4">Your personal wellbeing tracker — monitor your mood and workouts with ease.</p>
+  <style>
+    .hero {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+  </style>
 
-  <div class="d-flex justify-content-center gap-3 mb-4">
-    <a href="{% url 'mood_list' %}" class="btn btn-outline-primary btn-lg px-5">
-      Mood Logs
-    </a>
-    <a href="{% url 'workout_list' %}" class="btn btn-outline-success btn-lg px-5">
-      Workouts
-    </a>
-  </div>
+  <div class="container hero">
+    <img src="{% static 'images/fitlog_hero.png' %}" alt="FitLog Hero Image">
+    <h1 class="display-4 fw-bold">Welcome to FitLog 🎯</h1>
+    <p class="lead">Your wellbeing tracker for mood & workouts</p>
 
-  <div class="card mt-5 shadow-sm">
-    <div class="card-body">
-      <h5 class="card-title">Why use FitLog?</h5>
-      <ul class="list-unstyled mt-3">
-        <li>✅ Track your emotional wellbeing</li>
-        <li>✅ Log and manage your workouts</li>
-        <li>✅ Stay consistent and motivated</li>
-      </ul>
+    <div class="text-center my-4">
+      <a href="{% url 'mood_list' %}" class="btn btn-primary btn-lg mx-2 px-4">Mood Logs</a>
+      <a href="{% url 'workout_list' %}" class="btn btn-success btn-lg mx-2 px-4">Workout Logs</a>
+    </div>
+
+    <div class="card shadow-sm mt-5">
+      <div class="card-body">
+        <h3 class="card-title">Why use FitLog?</h3>
+        <p class="card-text mt-3">
+          🧠 Log your emotional state <br>
+          💪 Track your physical health <br>
+          ✨ Gain insights into your wellbeing
+        </p>
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}
