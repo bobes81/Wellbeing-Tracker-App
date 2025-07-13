@@ -40,7 +40,7 @@ def edit_workout(request, pk):
             return redirect('workout_list')
     else:
         form = WorkoutForm(instance=workout)
-    return render(request, 'tracker/add_workout.html', {'form': form})
+    return render(request, 'tracker/edit_workout.html', {'form': form})
 
 @login_required
 def delete_workout(request, pk):
@@ -48,7 +48,7 @@ def delete_workout(request, pk):
     if request.method == 'POST':
         workout.delete()
         return redirect('workout_list')
-    return render(request, 'tracker/workout_confirm_delete.html', {'workout': workout})
+    return render(request, 'tracker/delete_workout.html', {'workout': workout})
 
 @login_required
 def mood_create(request):
