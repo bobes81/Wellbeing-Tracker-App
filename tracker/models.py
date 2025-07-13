@@ -21,12 +21,19 @@ class Workout(models.Model):
         return f"{self.user.username} - {self.date} - {self.type}"
 
 class Mood(models.Model):
-    MOOD_CHOICES = [(i, str(i)) for i in range(1, 6)]
+    MOOD_CHOICES = [
+        ('happy', 'Happy'),
+        ('neutral', 'Neutral'),
+        ('sad', 'Sad'),
+        ('angry', 'Angry'),
+        ('tired', 'Tired'),
+        ('motivated', 'Motivated'),
+    ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField()
-    mood_level = models.IntegerField(choices=MOOD_CHOICES)
+    date = models.DateField(auto_now_add=True)
+    mood_type = models.CharField(max_length=20, choices=MOOD_CHOICES)
     note = models.TextField(blank=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.date} - Mood: {self.mood_level}"
+        return f"{self.user.username} - {self.date} - {self.get_mood_type_display()}"
