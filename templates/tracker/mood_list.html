@@ -3,4 +3,7 @@
 {% block content %}
   <div class="container mt-4">
     <h2>Your Mood Entries</h2>
-    <ul class="list-group
+    <a href="{% url 'mood_create' %}" class="btn btn-primary mb-3">Add New Mood</a>
+    <ul class="list-group">
+      {% for mood in moods %}
+        <li class="list-group
