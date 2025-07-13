@@ -6,6 +6,8 @@ from .models import Workout, Mood  # Import models from models.py
 from .forms import WorkoutForm, MoodForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 def home(request):
     return render(request, 'tracker/home.html', {'now': now()})
@@ -65,6 +67,23 @@ def mood_create(request):
     else:
         form = MoodForm()
     return render(request, 'tracker/mood_form.html', {'form': form})
+
+class MoodUpdateView(UpdateView):
+    model = Mood
+    form_class = MoodForm
+    template_name = 'tracker/mood_form.html'
+    success_url = reverse_lazy('mood_list')
+
+    def get_queryset(self):
+        return Mood.objects.filter(user=self.request.user)
+
+class MoodDeleteView(DeleteView):
+    model = Mood
+    template_name = 'tracker/mood_confirm_delete.html'
+    success_url = reverse_lazy('mood_list')
+
+    def get_queryset(self):
+        return Mood.objects.filter(user=self.request.user)
 
 def register(request):
     if request.method == 'POST':
