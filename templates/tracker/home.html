@@ -2,25 +2,13 @@
 {% load static %}
 
 {% block content %}
-  <style>
-    .hero {
-      margin-top: 40px;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    .hero img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-    }
-  </style>
+  <div class="container mt-5">
+    <div class="text-center mb-4">
+      <img src="{% static 'images/fitlog_hero.png' %}" alt="Welcome to FitLog" class="img-fluid rounded shadow" style="max-height: 400px;">
+    </div>
 
-  <div class="container hero">
-    <img src="{% static 'images/fitlog_hero.png' %}" alt="FitLog Hero Image">
-    <h1 class="display-4 fw-bold">Welcome to FitLog 🎯</h1>
-    <p class="lead">Your wellbeing tracker for mood & workouts</p>
+    <h1 class="text-center display-4 fw-bold">Welcome to FitLog 🎯</h1>
+    <p class="lead text-center">Track your wellbeing – moods & workouts</p>
 
     <div class="text-center my-4">
       <a href="{% url 'mood_list' %}" class="btn btn-primary btn-lg mx-2 px-4">Mood Logs</a>
@@ -30,11 +18,7 @@
     <div class="card shadow-sm mt-5">
       <div class="card-body">
         <h3 class="card-title">Why use FitLog?</h3>
-        <p class="card-text mt-3">
-          🧠 Log your emotional state <br>
-          💪 Track your physical health <br>
-          ✨ Gain insights into your wellbeing
-        </p>
+        <p class="card-text mt-3">Log your emotional state & track your physical health to improve your overall wellbeing.</p>
       </div>
     </div>
   </div>
