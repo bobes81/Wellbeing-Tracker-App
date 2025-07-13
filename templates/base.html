@@ -12,7 +12,7 @@
       <nav>
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'workout_list' %}">Workouts</a>
-        <a href="{% url 'mood_list' %}">Moods</a>
+        <a href="{% url 'mood_list' %}">My Mood Logs</a>  <!-- Added link to mood logs -->
         {% if user.is_authenticated %}
           <form action="{% url 'logout' %}" method="post" style="display:inline;">
             {% csrf_token %}

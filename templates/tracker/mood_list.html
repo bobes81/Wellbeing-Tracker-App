@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Your Mood Logs</h2>
+  {% if moods %}
+    <ul>
+      {% for mood in moods %}
+        <li>
+          <strong>{{ mood.date }}</strong>: {{ mood.get_mood_type_display }}<br>
+          {{ mood.note|linebreaksbr }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No moods recorded yet.</p>
+  {% endif %}
+{% endblock %}
