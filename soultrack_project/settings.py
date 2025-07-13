@@ -9,14 +9,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-secret-key")
 
-DEBUG = os.environ.get("DEBUG", "False") == "True"
+# Ensure DEBUG is set to False for production
+DEBUG = False
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'fitlog-app-ivo.herokuapp.com',
-    'fitlog-app-ivo-6b411ba5300f.herokuapp.com',  # <-- přidej tuto
-]
+# Specify allowed hosts for production
+ALLOWED_HOSTS = ['*']  # Replace '*' with your specific Heroku URL if needed
+
 CSRF_TRUSTED_ORIGINS = ['https://fitlog-app-ivo.herokuapp.com']
 INSTALLED_APPS = [
     'django.contrib.admin',
