@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler403, handler404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('tracker.urls')),  # Your app
-    path('', include('django.contrib.auth.urls')),  # Login, logout, password_reset, etc.
+    path('', include('tracker.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),  # Django auth views for login/logout
 ]
 
-# Error views (uncomment if needed later)
-# handler403 = "tracker.views.custom_403"
-# handler404 = "tracker.views.custom_404"
+handler403 = "tracker.views.custom_403"
+handler404 = "tracker.views.custom_404"
