@@ -14,7 +14,7 @@ def home(request):
 
 @login_required
 def workout_list(request):
-    workouts = Workout.objects.filter(user=request.user).order_by('-date')
+    workouts = Workout.objects.filter(user=request.user)
     return render(request, 'tracker/workout_list.html', {'workouts': workouts})
 
 @login_required
@@ -31,8 +31,8 @@ def add_workout(request):
     return render(request, 'tracker/add_workout.html', {'form': form})
 
 @login_required
-def edit_workout(request, workout_id):
-    workout = get_object_or_404(Workout, id=workout_id, user=request.user)
+def edit_workout(request, pk):
+    workout = get_object_or_404(Workout, pk=pk, user=request.user)
     if request.method == 'POST':
         form = WorkoutForm(request.POST, instance=workout)
         if form.is_valid():
@@ -40,15 +40,15 @@ def edit_workout(request, workout_id):
             return redirect('workout_list')
     else:
         form = WorkoutForm(instance=workout)
-    return render(request, 'tracker/edit_workout.html', {'form': form})
+    return render(request, 'tracker/add_workout.html', {'form': form})
 
 @login_required
-def delete_workout(request, workout_id):
-    workout = get_object_or_404(Workout, id=workout_id, user=request.user)
+def delete_workout(request, pk):
+    workout = get_object_or_404(Workout, pk=pk, user=request.user)
     if request.method == 'POST':
         workout.delete()
         return redirect('workout_list')
-    return render(request, 'tracker/delete_workout.html', {'workout': workout})
+    return render(request, 'tracker/workout_confirm_delete.html', {'workout': workout})
 
 @login_required
 def mood_create(request):
