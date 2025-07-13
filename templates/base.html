@@ -11,47 +11,12 @@
     {% block extra_head %}{% endblock %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="{% url 'home' %}">🏃‍♂️ FitLog</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <a class="navbar-brand" href="{% url 'home' %}">FitLog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-          <ul class="navbar-nav mb-2 mb-lg-0">
-            {% if user.is_authenticated %}
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-bs-toggle="dropdown">
-                  Hi, {{ user.username }}
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                  <li><a class="dropdown-item" href="{% url 'mood_list' %}">Mood Logs</a></li>
-                  <li><a class="dropdown-item" href="{% url 'workout_list' %}">Workout Logs</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li>
-                    <form action="{% url 'logout' %}" method="post" style="display:inline;">
-                      {% csrf_token %}
-                      <button type="submit" class="dropdown-item text-danger">Logout</button>
-                    </form>
-                  </li>
-                </ul>
-              </li>
-            {% else %}
-              <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
-            {% endif %}
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <main class="container my-5">
-      {% block content %}{% endblock %}
-    </main>
-
-    <footer class="text-center text-muted mt-5 mb-3">
-      &copy; 2025 FitLog App
-    </footer>
-  </body>
-</html>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav
