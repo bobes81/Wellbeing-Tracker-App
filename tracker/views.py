@@ -28,7 +28,7 @@ def add_workout(request):
             return redirect('workout_list')
     else:
         form = WorkoutForm()
-    return render(request, 'tracker/add_workout.html', {'form': form})
+    return render(request, 'workouts/workout_form.html', {'form': form})
 
 @login_required
 def edit_workout(request, pk):
@@ -61,7 +61,20 @@ def mood_create(request):
             return redirect('mood_list')
     else:
         form = MoodForm()
-    return render(request, 'tracker/mood_form.html', {'form': form})
+    return render(request, 'moods/mood_form.html', {'form': form})
+
+@login_required
+def add_mood(request):
+    if request.method == 'POST':
+        form = MoodForm(request.POST)
+        if form.is_valid():
+            mood = form.save(commit=False)
+            mood.user = request.user
+            mood.save()
+            return redirect('mood_list')
+    else:
+        form = MoodForm()
+    return render(request, 'moods/mood_form.html', {'form': form})
 
 @login_required
 def mood_list(request):
@@ -128,14 +141,9 @@ def logout_view(request):
     logout(request)
     return redirect('home')
 
+# Error handlers — FINAL VERSION
 def custom_404(request, exception):
     return render(request, 'errors/404.html', status=404)
 
 def custom_403(request, exception):
     return render(request, 'errors/403.html', status=403)
-
-def error_403(request, exception):
-    return render(request, "403.html", status=403)
-
-def error_404(request, exception):
-    return render(request, "404.html", status=404)

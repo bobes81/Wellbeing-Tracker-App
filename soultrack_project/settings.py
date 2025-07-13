@@ -40,6 +40,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'soultrack_project.urls'
 
+# Custom error handlers
+HANDLER404 = 'tracker.views.custom_404'
+HANDLER403 = 'tracker.views.custom_403'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
