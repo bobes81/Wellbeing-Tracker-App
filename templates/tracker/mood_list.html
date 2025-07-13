@@ -1,16 +1,6 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
 {% block content %}
-  <h2>Your Mood Logs</h2>
-  <ul>
-    {% for mood in moods %}
-      <li>
-        <strong>{{ mood.date|date:"F j, Y" }}: {{ mood.get_mood_type_display }}</strong><br>
-        {{ mood.note|linebreaks }}<br>
-        <a href="{% url 'mood_edit' mood.pk %}">Edit</a> |
-        <a href="{% url 'mood_delete' mood.pk %}">Delete</a>
-      </li>
-    {% empty %}
-      <li>No mood logs yet.</li>
-    {% endfor %}
-  </ul>
-{% endblock %}
+  <div class="container mt-4">
+    <h2>Your Mood Entries</h2>
+    <ul class="list-group

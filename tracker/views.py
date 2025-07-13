@@ -6,7 +6,7 @@ from .models import Workout, Mood  # Import models from models.py
 from .forms import WorkoutForm, MoodForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic import ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 def home(request):
@@ -50,23 +50,13 @@ def delete_workout(request, workout_id):
         return redirect('workout_list')
     return render(request, 'tracker/delete_workout.html', {'workout': workout})
 
-@login_required
-def mood_list(request):
-    moods = Mood.objects.filter(user=request.user).order_by('-date')
-    return render(request, 'tracker/mood_list.html', {'moods': moods})
+class MoodListView(ListView):
+    model = Mood
+    template_name = 'tracker/mood_list.html'
+    context_object_name = 'moods'
 
-@login_required
-def mood_create(request):
-    if request.method == 'POST':
-        form = MoodForm(request.POST)
-        if form.is_valid():
-            mood = form.save(commit=False)
-            mood.user = request.user
-            mood.save()
-            return redirect('mood_list')
-    else:
-        form = MoodForm()
-    return render(request, 'tracker/mood_form.html', {'form': form})
+    def get_queryset(self):
+        return Mood.objects.filter(user=self.request.user).order_by('-date')
 
 class MoodUpdateView(UpdateView):
     model = Mood
