@@ -50,6 +50,44 @@ def delete_workout(request, workout_id):
         return redirect('workout_list')
     return render(request, 'tracker/delete_workout.html', {'workout': workout})
 
+@login_required
+def mood_create(request):
+    if request.method == 'POST':
+        form = MoodForm(request.POST)
+        if form.is_valid():
+            mood = form.save(commit=False)
+            mood.user = request.user
+            mood.save()
+            return redirect('mood_list')
+    else:
+        form = MoodForm()
+    return render(request, 'tracker/mood_form.html', {'form': form})
+
+@login_required
+def mood_list(request):
+    moods = Mood.objects.filter(user=request.user).order_by('-date')
+    return render(request, 'tracker/mood_list.html', {'moods': moods})
+
+@login_required
+def edit_mood(request, pk):
+    mood = get_object_or_404(Mood, pk=pk, user=request.user)
+    if request.method == 'POST':
+        form = MoodForm(request.POST, instance=mood)
+        if form.is_valid():
+            form.save()
+            return redirect('mood_list')
+    else:
+        form = MoodForm(instance=mood)
+    return render(request, 'tracker/mood_form.html', {'form': form})
+
+@login_required
+def delete_mood(request, pk):
+    mood = get_object_or_404(Mood, pk=pk, user=request.user)
+    if request.method == 'POST':
+        mood.delete()
+        return redirect('mood_list')
+    return render(request, 'tracker/mood_confirm_delete.html', {'mood': mood})
+
 class MoodListView(ListView):
     model = Mood
     template_name = 'tracker/mood_list.html'
