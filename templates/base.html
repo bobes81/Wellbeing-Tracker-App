@@ -27,7 +27,12 @@
                 <li><a class="dropdown-item" href="{% url 'mood_list' %}">Mood Logs</a></li>
                 <li><a class="dropdown-item" href="{% url 'workout_list' %}">Workout Logs</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item text-danger" href="{% url 'logout' %}">Logout</a></li>
+                <li>
+                  <form method="POST" action="{% url 'logout' %}">
+                      {% csrf_token %}
+                      <button type="submit" class="dropdown-item text-danger">Logout</button>
+                  </form>
+                </li>
               </ul>
             </li>
           {% else %}
@@ -39,12 +44,7 @@
     </div>
   </nav>
 
-  <main class="container my-5">
-    {% block content %}{% endblock %}
-  </main>
+  {% block content %}{% endblock %}
 
-  <footer class="text-center text-muted mt-5 mb-3">
-    &copy; 2025 FitLog App
-  </footer>
 </body>
 </html>
