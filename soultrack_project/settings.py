@@ -1,39 +1,32 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 import dj_database_url
 
-# --- Heroku safe import ---
-try:
-    import django_heroku
-except ImportError:
-    django_heroku = None
+load_dotenv()
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6!%=26-wg35++kw3&!_do_idex!zqmv%s8sk8p7514&*-ve9g7'
+SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-secret-key")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['fitlog-app-ivo-6b411ba5300f.herokuapp.com', 'localhost', '127.0.0.1']
-
-# Application definition
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'fitlog-app-ivo.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://fitlog-app-ivo.herokuapp.com']
 INSTALLED_APPS = [
-    'django.contrib.admin',  # Verified admin app
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',  # <--- Nutné pro collectstatic
     'tracker',
-    'accounts',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Ensure whitenoise middleware is included
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # <--- Nutné pro Heroku
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -47,7 +40,7 @@ ROOT_URLCONF = 'soultrack_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],  # Updated to include BASE_DIR / "templates"
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -62,55 +55,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'soultrack_project.wsgi.application'
 
-# DATABASE CONFIGURATION
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600) if dj_database_url else {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600
+    )
 }
 
-if os.environ.get("DATABASE_URL"):
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
-AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
-]
-
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
-USE_I18N = True
-USE_TZ = True
-
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/accounts/login/'
-
-# Logging for debug output in Heroku logs
-if DEBUG:
-    LOGGING = {
-        'version': 1,
-        'disable_existing_loggers': False,
-        'handlers': {
-            'console': {
-                'class': 'logging.StreamHandler',
-            },
-        },
-        'root': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    }
-
-# Activate Django-Heroku magic
-import django_heroku
-django_heroku.settings(locals())
