@@ -4,7 +4,7 @@ from .models import Mood, Workout
 class MoodForm(forms.ModelForm):
     class Meta:
         model = Mood
-        fields = ['mood_level', 'notes']  # Removed 'date'
+        fields = ['mood_level', 'notes']  # ❗️NEZAHRNUJ 'date'
         widgets = {
             'notes': forms.Textarea(attrs={'rows': 3}),
         }
