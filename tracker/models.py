@@ -30,9 +30,8 @@ class Mood(models.Model):
         (4, 'Good'),
         (5, 'Very Good'),
     ]
-
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField(default=timezone.now)  # OPRAVA: pole je nyní editovatelné
+    date = models.DateField(default=timezone.now)
     mood_level = models.IntegerField(choices=MOOD_LEVEL_CHOICES)
     notes = models.TextField(blank=True, null=True)
 

@@ -9,6 +9,7 @@ urlpatterns = [
     path('workouts/edit/<int:pk>/', views.edit_workout, name='edit_workout'),
     path('workouts/delete/<int:pk>/', views.delete_workout, name='delete_workout'),
     path('moods/', views.mood_list, name='mood_list'),
+    # další cesty...
     path('moods/add/', views.mood_create, name='mood_create'),
     path('moods/edit/<int:pk>/', views.edit_mood, name='edit_mood'),
     path('moods/delete/<int:pk>/', views.delete_mood, name='delete_mood'),
