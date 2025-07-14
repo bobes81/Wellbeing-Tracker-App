@@ -165,6 +165,9 @@ Segoe UI and fallback sans-serif
 
 ### 📱 Responsive Views
 
+To demonstrate how FitLog behaves on real mobile devices, the following screenshots were captured directly from a phone browser.
+This allows reviewers to see the natural layout, scroll behavior, and responsiveness without design mockups or edits.
+
 <table>
   <tr>
     <th style="text-align: center;">Homepage</th>
@@ -213,6 +216,8 @@ Performed across:
 - Chrome  
 - Firefox  
 - Safari (iOS + Mac)
+
+
 
 ### 🧾 Test Cases
 
@@ -269,15 +274,13 @@ Click **Fork** in top-right corner of the repository.
 ---
 
 ## 💬 Credits
-
-- Code Institute Mentorship  
+ 
 - “Sizzle & Steak” structure reference  
 - Icons by [Font Awesome](https://fontawesome.com)  
 - Hero/Favicon by [Canva](https://canva.com)  
 - Compression via [TinyPNG](https://tinypng.com)  
 - Code validation with [W3 Validator](https://validator.w3.org)
-
-Special thanks to **Alex (OpenAI GPT)** for technical support and code validation assistance.
+- OpenAI GPT for technical support and code validation assistance.
 
 ---
 
