@@ -3,7 +3,7 @@
 {% block content %}
   <div class="container mt-4">
     <h2>Your Mood Entries</h2>
-    <a href="{% url 'mood_create' %}" class="btn btn-primary mb-3">Add New Mood</a>
+    <a href="{% url 'add_mood' %}" class="btn btn-primary mb-3">Add New Mood</a>
     <ul class="list-group">
       {% for mood in moods %}
         <li class="list-group-item d-flex justify-content-between align-items-center">
