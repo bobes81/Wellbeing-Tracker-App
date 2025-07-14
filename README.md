@@ -164,7 +164,6 @@ Segoe UI and fallback sans-serif
 - Favicon via Canva
 
 ### 📱 Responsive Views
-
 <table>
   <thead>
     <tr>
@@ -175,23 +174,23 @@ Segoe UI and fallback sans-serif
   <tbody>
     <tr>
       <td><strong>Homepage</strong></td>
-      <td><img src="static/readme_images/mobile-main-screan.PNG" alt="Homepage Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="static/readme_images/mobile-main-screan.PNG" alt="Homepage Mobile" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
     </tr>
     <tr>
       <td><strong>Mood Entry</strong></td>
-      <td><img src="static/readme_images/mood-mobile.PNG" alt="Mood Entry Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="static/readme_images/mood-mobile.PNG" alt="Mood Entry Mobile" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
     </tr>
     <tr>
       <td><strong>Add Mood</strong></td>
-      <td><img src="static/readme_images/mood-add.PNG" alt="Add Mood Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="static/readme_images/mood-add.PNG" alt="Add Mood Mobile" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
     </tr>
     <tr>
       <td><strong>Workout Log</strong></td>
-      <td><img src="static/readme_images/calendar-cellphone.PNG" alt="Workout Log Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="static/readme_images/calendar-cellphone.PNG" alt="Workout Log Mobile" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
     </tr>
     <tr>
       <td><strong>Workout History</strong></td>
-      <td><img src="static/readme_images/history-mobile.PNG" alt="Workout History Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="static/readme_images/history-mobile.PNG" alt="Workout History Mobile" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
     </tr>
   </tbody>
 </table>
