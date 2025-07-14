@@ -169,25 +169,28 @@ Segoe UI and fallback sans-serif
   <tr>
     <th style="text-align: center;">Homepage</th>
     <th style="text-align: center;">Mood Entry</th>
-    <th style="text-align: center;">Add Mood</th>
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mobile-main-screan.PNG" width="100" alt="Homepage Mobile" /></td>
     <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-mobile.PNG" width="100" alt="Mood Entry Mobile" /></td>
-    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-add.PNG" width="100" alt="Add Mood Mobile" /></td>
   </tr>
   <tr>
+    <th style="text-align: center;">Add Mood</th>
     <th style="text-align: center;">Workout Log</th>
-    <th style="text-align: center;">Workout History</th>
-    <th></th>
   </tr>
   <tr>
+    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-add.PNG" width="100" alt="Add Mood Mobile" /></td>
     <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/calendar-cellphone.PNG" width="100" alt="Workout Log Mobile" /></td>
-    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/history-mobile.PNG" width="100" alt="Workout History Mobile" /></td>
-    <td></td>
+  </tr>
+  <tr>
+    <th colspan="2" style="text-align: center;">Workout History</th>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center;">
+      <img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/history-mobile.PNG" width="100" alt="Workout History Mobile" />
+    </td>
   </tr>
 </table>
-
 
 ---
 
