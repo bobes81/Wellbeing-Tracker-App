@@ -187,7 +187,7 @@ Segoe UI and fallback sans-serif
   </tr>
   <tr>
     <td colspan="2" style="text-align: center;">
-      <img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/history-mobile.PNG" width="100" alt="Workout History Mobile" />
+      <img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/history-mobile.PNG" width="200" alt="Workout History Mobile" />
     </td>
   </tr>
 </table>
