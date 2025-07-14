@@ -1,214 +1,251 @@
-# FitLog
+<!-- Main screenshot - larger display -->
 
-FitLog is a wellbeing tracking app designed to help users log their moods and workouts to support physical and emotional health. The live app can be accessed here: [Live Site - FitLog](https://fitlog-app-ivo-6b411ba5300f.herokuapp.com/)
 
----
+<h3>🏁 Welcome Screen</h3>
+<img src="static/images/main-page.jpg" alt="Main Page Screenshot" style="width: 100%; max-width: 600px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
-## Table of Contents
 
-* [User Experience Design](#user-experience-design)
+FitLog is a wellbeing tracking app designed to help users log their moods and workouts to support physical and emotional health.
+👉 Live App
 
-  * [Strategy Plane](#strategy-plane)
-  * [Agile Planning](#agile-planning)
-  * [Epics](#epics)
-  * [User Stories](#user-stories)
-* [Scope Plane](#scope-plane)
-* [Structure Plane](#structure-plane)
-* [Skeleton Plane](#skeleton-plane)
+⸻
 
-  * [Wireframes](#wireframes)
-* [Surface Plane](#surface-plane)
+📱 Mobile Experience
 
-  * [Design](#design)
-  * [Colour Scheme](#colour-scheme)
-  * [Typography](#typography)
-  * [Imagery](#imagery)
-* [Technologies](#technologies)
-* [Testing](#testing)
-* [Deployment](#deployment)
+FitLog is fully responsive and adapts seamlessly to mobile and tablet devices. Navigation collapses into a hamburger menu for smaller screens, and all features remain accessible and intuitive.
 
-  * [Version Control](#version-control)
-  * [Heroku Deployment](#heroku-deployment)
-  * [Run Locally](#run-locally)
-  * [Fork Project](#fork-project)
-* [Credits](#credits)
+🔄 Navigating on Mobile
+	•	Tap the ☰ icon (top-right) to open the menu.
+	•	Select Add Workout or Add Mood to log entries.
+	•	Tap the FitLog logo 🏃‍♂️ (top-left) anytime to return to the homepage.
 
----
+📸 Mobile Screenshots
 
-## User Experience Design
+<img src="static/images/mobile-main-screan.PNG" alt="Mobile Main Page" style="width: 100%; max-width: 300px; border-radius: 6px; margin: 10px;" />
+<img src="static/images/mood-mobile.PNG" alt="Mood List on Mobile" style="width: 100%; max-width: 300px; border-radius: 6px; margin: 10px;" />
+<img src="static/images/calendar-cellphone.PNG" alt="Workout Calendar on Mobile" style="width: 100%; max-width: 300px; border-radius: 6px; margin: 10px;" />
 
-### Strategy Plane
 
-The goal of FitLog is to provide users with a simple and intuitive tool to track their wellbeing through mood logging and workout tracking. The platform promotes self-awareness and long-term health improvements.
 
-### Agile Planning
+⸻
 
-The project was developed using agile methodology across 3 sprints. GitHub Projects was used to manage user stories and progress.
+📑 Table of Contents
+	•	🧠 User Experience Design
+	•	🎯 Strategy Plane
+	•	🗂️ Agile Planning
+	•	🧩 Epics
+	•	👤 User Stories
+	•	🧭 Using the App
+	•	📌 Scope Plane
+	•	🏗 Structure Plane
+	•	🔧 Features
+	•	🧪 Features Left to Implement
+	•	📐 Skeleton Plane
+	•	📲 Wireframes
+	•	🎨 Surface Plane
+	•	🖼 Design
+	•	🌈 Colour Scheme
+	•	🔤 Typography
+	•	🖌 Imagery
+	•	🛠 Technologies
+	•	✅ Testing
+	•	👀 Manual Testing
+	•	🧾 Test Cases
+	•	📊 Lighthouse Audit
+	•	🚀 Deployment
+	•	🔁 Version Control
+	•	🌐 Heroku Deployment
+	•	💻 Run Locally
+	•	🍴 Fork Project
+	•	💬 Credits
 
-### Epics
+⸻
 
-1. **Base Setup**
-2. **Authentication**
-3. **Mood Logging**
-4. **Workout Tracking**
-5. **Homepage and Navigation**
-6. **Deployment**
-7. **Documentation**
+🧠 User Experience Design
 
-### User Stories (Examples)
+🎯 Strategy Plane
 
-* As a user, I want to register and log in so I can track my progress.
-* As a user, I want to log my current mood so I can reflect on my emotional state.
-* As a user, I want to add, edit, and delete workouts to keep my exercise routine updated.
-* As a user, I want to log out securely.
+The goal of FitLog is to provide users with a simple and intuitive tool to track their wellbeing through mood logging and workout tracking.
+The platform promotes self-awareness and long-term health improvements through consistency and simplicity.
 
----
+🗂️ Agile Planning
 
-## Scope Plane
+The project was managed using Agile methodology and divided into sprints. GitHub Projects board was used to track epics, tasks, and user stories.
 
-* Fully responsive design
-* Secure user authentication
-* CRUD functionality for moods and workouts
-* Intuitive dashboard with visual hierarchy
+🧩 Epics
+	1.	Base Project Setup
+	2.	Authentication System
+	3.	Mood Logging Module
+	4.	Workout Logging Module
+	5.	UI and Navigation
+	6.	Deployment Configuration
+	7.	Documentation and README
 
----
+👤 User Stories
+	•	As a user, I want to register and log in so I can track my progress.
+	•	As a user, I want to add/edit/delete moods.
+	•	As a user, I want to track workouts with date, activity, and notes.
+	•	As a user, I want a simple and responsive interface on any device.
+	•	As a user, I want to securely log out of my session.
 
-## Structure Plane
+⸻
 
-### Features
+🧭 Using the App
 
-* **Mood Logs:** Create, update, delete, and view daily mood entries
-* **Workout Logs:** Track workouts with date, type, and duration
-* **User Auth:** Custom login, register, and logout views with Django messages
+🏠 Homepage
 
-### Features Left to Implement
+After login, the user sees a welcoming homepage with light design and navigation at the top.
 
-* Data visualizations (e.g. mood trends over time)
-* Profile pages with stats
+🔐 Authentication
+	•	Register, log in and log out via secure forms.
+	•	CSRF protection enabled.
 
----
+💪 Workout Logging
+	•	Add/edit/delete workouts with date, type, duration, and optional notes.
 
-## Skeleton Plane
+😊 Mood Logging
+	•	Add/edit/delete moods with 1–5 level scale and optional notes.
 
-### Wireframes
+🧭 Navigation
+	•	Navbar adapts to user state.
+	•	Facebook/Instagram icons in the header and footer link externally.
 
-Wireframes were designed to prioritize clarity and mobile responsiveness. Key views:
+⸻
 
-* Homepage
-* Mood Log List
-* Workout Log List
-* Mood & Workout Forms
-* Login / Register
+📌 Scope Plane
 
----
+MVP Features
+	•	Responsive layout
+	•	Authentication system
+	•	Mood + Workout CRUD operations
+	•	Navigation bar
 
-## Surface Plane
+⸻
 
-### Design
+🏗 Structure Plane
 
-The interface was kept light and accessible with friendly language and icons.
+🔧 Features
+	•	Mood & Workout logs
+	•	Form validation
+	•	Authentication + Logout redirect
+	•	User-specific querysets
 
-### Colour Scheme
+🧪 Features Left to Implement
+	•	Mood trend graphs 📈
+	•	Profile with stats 🧍
+	•	Reminders or motivational quotes 🧘‍♂️
 
-* Background: Vanilla (#fffbe6)
-* Hero section: Soft yellow (#fff3cd)
-* Buttons: Bootstrap primary and success variants
+⸻
 
-### Typography
+📐 Skeleton Plane
 
-* Main font: "Segoe UI", system sans-serif stack
+📲 Wireframes
 
-### Imagery
+Basic wireframes were planned with mobile-first layout:
+	•	Homepage
+	•	Mood & Workout pages
+	•	Authentication screens
 
-* A custom hero illustration symbolizes wellbeing
+⸻
 
----
+🎨 Surface Plane
 
-## Technologies
+🖼 Design
 
-* **Frontend:** HTML5, CSS3, Bootstrap 5
-* **Backend:** Python, Django
-* **Database:** SQLite (development), PostgreSQL (production)
-* **Deployment:** Heroku
-* **Version Control:** Git & GitHub
-* **Design tools:** Canva (illustration), TinyPNG (compression)
+Bright, uplifting layout with minimal distractions.
 
----
+🌈 Colour Scheme
+	•	#fffbe6 background
+	•	#fff3cd hero sections
+	•	Bootstrap defaults
 
-## Testing
+🔤 Typography
 
-### Manual Testing
+Segoe UI and fallback sans-serif
 
-All CRUD operations were manually tested across the following browsers:
+🖌 Imagery
+	•	Custom AI illustration
+	•	FontAwesome icons
+	•	Favicon via Canva
 
-* Chrome
-* Safari (Mac & iOS)
-* Firefox
+⸻
 
-### Test Cases
+🛠 Technologies
+	•	Frontend: HTML5, CSS3, Bootstrap
+	•	Backend: Python, Django
+	•	DB: SQLite (dev) / PostgreSQL (prod)
+	•	Deployment: Heroku
+	•	Versioning: Git & GitHub
+	•	Other: dotenv, dj-database-url, widget-tweaks
 
-| Feature     | Expected Result                        | Outcome                                      |
-| ----------- | -------------------------------------- | -------------------------------------------- |
-| Register    | User is created and redirected         | Pass ✅                                       |
-| Login       | Valid credentials redirect to homepage | Pass ✅                                       |
-| Add Mood    | New mood is saved and shown            | Pass ✅                                       |
-| Edit Mood   | Entry is updated correctly             | Pass ✅                                       |
-| Delete Mood | Mood is removed                        | Pass ✅                                       |
-| Add Workout | Workout appears in list                | Pass ✅                                       |
-| Logout      | User is redirected and session ends    | Pass ✅ (after setting LOGOUT\_REDIRECT\_URL) |
+⸻
 
-### Lighthouse Audit
+✅ Testing
 
-* Performance: ✅
-* Accessibility: Minor improvements suggested (e.g., button naming)
-* Best Practices: ✅
-* SEO: Add meta description – planned
+👀 Manual Testing
 
----
+Performed across:
+	•	Chrome
+	•	Firefox
+	•	Safari (iOS + Mac)
 
-## Deployment
+🧾 Test Cases
 
-### Version Control
+Feature	Expected	Result
+Register	Redirects to home	✅
+Login	Home visible	✅
+Add Mood	Entry added	✅
+Edit Mood	Entry updated	✅
+Delete Mood	Entry removed	✅
+Add Workout	Added and displayed	✅
+Logout	Session ended	✅
 
-Git was used for local commits and GitHub for remote repository:
+📊 Lighthouse Audit
+	•	Performance ✅
+	•	Accessibility ⚠️ (button contrast suggestions)
+	•	Best Practices ✅
+	•	SEO ⚠️ meta description planned
 
-```bash
+⸻
+
+🚀 Deployment
+
+🔁 Version Control
+
 git add .
 git commit -m "Meaningful message"
 git push origin main
-```
 
-### Heroku Deployment
+🌐 Heroku Deployment
+	•	Heroku app with PostgreSQL addon
+	•	Config vars for SECRET_KEY, DEBUG etc
+	•	Static files via WhiteNoise
+	•	Deployed from GitHub
 
-1. Create a Heroku app
-2. Set environment variables (SECRET\_KEY, DEBUG, ALLOWED\_HOSTS, etc.)
-3. Add PostgreSQL addon
-4. Push from GitHub or connect via Heroku CLI
-5. Deploy from `main` branch
+💻 Run Locally
 
-### Run Locally
-
-```bash
 git clone https://github.com/your-username/fitlog.git
 cd fitlog
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
-```
 
-### Fork Project
+🍴 Fork Project
 
-Go to the GitHub repository and click **Fork** to create your own copy.
+Click Fork in top-right corner of the repository.
 
----
+⸻
 
-## Credits
+💬 Credits
+	•	Code Institute Mentorship
+	•	“Sizzle & Steak” structure reference
+	•	Icons by Font Awesome
+	•	Hero/Favicon by Canva
+	•	Compression via TinyPNG
+	•	Code validation with W3 Validator
 
-* **Mentor Support:** Code Institute
-* **Illustrations:** Custom generated with AI
-* **Hero Image Compression:** [TinyPNG](https://tinypng.com)
-* **Design Reference:** Based on "Sizzle and Steak" by mentor
+Special thanks to Alex (OpenAI GPT) for technical support and code validation assistance.
 
----
+⸻
 
-**Live App:** [https://fitlog-app-ivo-6b411ba5300f.herokuapp.com/](https://fitlog-app-ivo-6b411ba5300f.herokuapp.com/)
+🔗 Live Project: https://fitlog-app-ivo-6b411ba5300f.herokuapp.com/
