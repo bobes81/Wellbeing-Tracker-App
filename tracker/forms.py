@@ -12,7 +12,7 @@ class MoodForm(forms.ModelForm):
 class WorkoutForm(forms.ModelForm):
     class Meta:
         model = Workout
-        fields = ['date', 'activity', 'duration', 'notes']
+        fields = ['date', 'type', 'activity', 'duration', 'notes']
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
             'notes': forms.Textarea(attrs={'rows': 3}),
