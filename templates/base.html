@@ -5,28 +5,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FitLog</title>
-  <link rel="icon" type="image/png" href="{% static 'images/favicon.ico' %}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a2e0e6ad94.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg" style="background-color: #fff3cd;">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="{% url 'home' %}">🏃‍♂️ FitLog</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-              aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand fw-bold text-dark" href="{% url 'home' %}">🏃‍♂️ FitLog</a>
+
+      <!-- Social icons (right side) -->
+      <div class="d-flex align-items-center me-3">
+        <a href="https://facebook.com" target="_blank" class="me-3 text-dark" title="Facebook">
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="text-dark" title="Instagram">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarContent" aria-controls="navbarContent"
+              aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
         <ul class="navbar-nav mb-2 mb-lg-0">
           {% if user.is_authenticated %}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
                  data-bs-toggle="dropdown" aria-expanded="false">
                 Hi, {{ user.username }}
               </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="{% url 'add_workout' %}">Add Workout</a></li>
                 <li><a class="dropdown-item" href="{% url 'add_mood' %}">Add Mood</a></li>
                 <li><hr class="dropdown-divider"></li>
@@ -39,18 +58,20 @@
               </ul>
             </li>
           {% else %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="{% url 'login' %}">Login</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="{% url 'register' %}">Register</a></li>
           {% endif %}
         </ul>
       </div>
     </div>
   </nav>
 
+  <!-- Main Content -->
   <main class="container my-5">
     {% block content %}{% endblock %}
   </main>
 
+  <!-- Footer -->
   <footer class="text-center text-muted mt-5 mb-3">
     <div class="footer-icons mb-2">
       <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
@@ -59,6 +80,7 @@
     <div>&copy; 2025 FitLog App</div>
   </footer>
 
+  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
