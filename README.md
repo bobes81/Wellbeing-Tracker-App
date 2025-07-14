@@ -2,7 +2,7 @@
 
 <!-- Main screenshot - larger display -->
 <h3>🏁 Welcome Screen</h3>
-<img src="static/readme_images/main-page.jpg" alt="Main Page" style="max-width: 600px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
+<img src="static/readme_images/main-page.jpg" alt="Main Page" style="max-width: 500px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
 
 
