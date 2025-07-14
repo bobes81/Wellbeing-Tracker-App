@@ -15,5 +15,6 @@ class WorkoutForm(forms.ModelForm):
         fields = ['date', 'type', 'activity', 'duration', 'notes']
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),
+            'type': forms.Select(),
             'notes': forms.Textarea(attrs={'rows': 3}),
         }
