@@ -14,4 +14,11 @@
             {% endif %}
           </div>
           <div>
-            <a href="{% url 'edit_workout' workout.pk %}" class="btn btn-sm
+            <a href="{% url 'edit_workout' workout.pk %}" class="btn btn-sm btn-warning">Edit</a>
+            <a href="{% url 'delete_workout' workout.pk %}" class="btn btn-sm btn-danger">Delete</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
