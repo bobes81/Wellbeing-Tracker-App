@@ -175,26 +175,27 @@ Segoe UI and fallback sans-serif
   <tbody>
     <tr>
       <td><strong>Homepage</strong></td>
-      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mobile-main-screan.PNG?v=2" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mobile-main-screan.PNG" width="100" alt="Homepage Mobile" /></td>
     </tr>
     <tr>
       <td><strong>Mood Entry</strong></td>
-      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-mobile.PNG?v=2" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-mobile.PNG" width="100" alt="Mood Entry Mobile" /></td>
     </tr>
     <tr>
       <td><strong>Add Mood</strong></td>
-      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-add.PNG?v=2" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-add.PNG" width="100" alt="Add Mood Mobile" /></td>
     </tr>
     <tr>
       <td><strong>Workout Log</strong></td>
-      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/calendar-cellphone.PNG?v=2" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/calendar-cellphone.PNG" width="100" alt="Workout Log Mobile" /></td>
     </tr>
     <tr>
       <td><strong>Workout History</strong></td>
-      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/history-mobile.PNG?v=2" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/history-mobile.PNG" width="100" alt="Workout History Mobile" /></td>
     </tr>
   </tbody>
 </table>
+
 
 ---
 
