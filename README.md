@@ -2,7 +2,7 @@
 
 <!-- Main screenshot - larger display -->
 <h3>🏁 Welcome Screen</h3>
-<img src="static/readme_images/main-page.jpg" alt="Main Page" style="max-width: 600px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
+<img src="static/readme_images/main-page.jpg" alt="Main Page" style="max-width: 500px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
 
 
@@ -164,35 +164,35 @@ Segoe UI and fallback sans-serif
 - Favicon via Canva
 
 ### 📱 Responsive Views
+
+To demonstrate how FitLog behaves on real mobile devices, the following screenshots were captured directly from a phone browser.
+This allows reviewers to see the natural layout, scroll behavior, and responsiveness without design mockups or edits.
+
 <table>
-  <thead>
-    <tr>
-      <th style="text-align: left;">View</th>
-      <th style="text-align: left;">Screenshot</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Homepage</strong></td>
-      <td><img src="static/readme_images/mobile-main-screan.PNG" alt="Homepage Mobile" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
-    </tr>
-    <tr>
-      <td><strong>Mood Entry</strong></td>
-      <td><img src="static/readme_images/mood-mobile.PNG" alt="Mood Entry Mobile" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
-    </tr>
-    <tr>
-      <td><strong>Add Mood</strong></td>
-      <td><img src="static/readme_images/mood-add.PNG" alt="Add Mood Mobile" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
-    </tr>
-    <tr>
-      <td><strong>Workout Log</strong></td>
-      <td><img src="static/readme_images/calendar-cellphone.PNG" alt="Workout Log Mobile" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
-    </tr>
-    <tr>
-      <td><strong>Workout History</strong></td>
-      <td><img src="static/readme_images/history-mobile.PNG" alt="Workout History Mobile" style="max-width: 100px; border-radius: 8px; border: 1px solid #ccc;" /></td>
-    </tr>
-  </tbody>
+  <tr>
+    <th style="text-align: center;">Homepage</th>
+    <th style="text-align: center;">Mood Entry</th>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mobile-main-screan.PNG" width="100" alt="Homepage Mobile" /></td>
+    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-mobile.PNG" width="100" alt="Mood Entry Mobile" /></td>
+  </tr>
+  <tr>
+    <th style="text-align: center;">Add Mood</th>
+    <th style="text-align: center;">Workout Log</th>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-add.PNG" width="100" alt="Add Mood Mobile" /></td>
+    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/calendar-cellphone.PNG" width="100" alt="Workout Log Mobile" /></td>
+  </tr>
+  <tr>
+    <th colspan="2" style="text-align: center;">Workout History</th>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center;">
+      <img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/history-mobile.PNG" width="200" alt="Workout History Mobile" />
+    </td>
+  </tr>
 </table>
 
 ---
@@ -216,6 +216,8 @@ Performed across:
 - Chrome  
 - Firefox  
 - Safari (iOS + Mac)
+
+
 
 ### 🧾 Test Cases
 
@@ -272,15 +274,13 @@ Click **Fork** in top-right corner of the repository.
 ---
 
 ## 💬 Credits
-
-- Code Institute Mentorship  
+ 
 - “Sizzle & Steak” structure reference  
 - Icons by [Font Awesome](https://fontawesome.com)  
 - Hero/Favicon by [Canva](https://canva.com)  
 - Compression via [TinyPNG](https://tinypng.com)  
 - Code validation with [W3 Validator](https://validator.w3.org)
-
-Special thanks to **Alex (OpenAI GPT)** for technical support and code validation assistance.
+- OpenAI GPT for technical support and code validation assistance.
 
 ---
 
