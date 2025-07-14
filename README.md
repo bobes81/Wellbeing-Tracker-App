@@ -2,7 +2,9 @@
 
 <!-- Main screenshot - larger display -->
 <h3>🏁 Welcome Screen</h3>
-<img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/images/main-page.jpg" alt="Main Page" style="max-width: 600px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;">
+<img src="static/readme_images/main-page.jpg" alt="Main Page" style="max-width: 600px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
+
+
 
 FitLog is a wellbeing tracking app designed to help users log their moods and workouts to support physical and emotional health.  
 👉 [Live Site - FitLog](https://fitlog-app-ivo-6b411ba5300f.herokuapp.com/)
@@ -173,23 +175,23 @@ Segoe UI and fallback sans-serif
   <tbody>
     <tr>
       <td><strong>Homepage</strong></td>
-      <td><img src="static/images/mobile-main-screan.PNG" alt="Homepage Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="static/readme_images/mobile-main-screan.PNG" alt="Homepage Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
     </tr>
     <tr>
       <td><strong>Mood Entry</strong></td>
-      <td><img src="static/images/mood-mobile.PNG" alt="Mood Entry Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="static/readme_images/mood-mobile.PNG" alt="Mood Entry Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
     </tr>
     <tr>
       <td><strong>Add Mood</strong></td>
-      <td><img src="static/images/mood-add.PNG" alt="Add Mood Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="static/readme_images/mood-add.PNG" alt="Add Mood Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
     </tr>
     <tr>
       <td><strong>Workout Log</strong></td>
-      <td><img src="static/images/calendar-cellphone.PNG" alt="Workout Log Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="static/readme_images/calendar-cellphone.PNG" alt="Workout Log Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
     </tr>
     <tr>
       <td><strong>Workout History</strong></td>
-      <td><img src="static/images/history-mobile.PNG" alt="Workout History Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
+      <td><img src="static/readme_images/history-mobile.PNG" alt="Workout History Mobile" style="max-width: 250px; border-radius: 8px; border: 1px solid #ccc;" /></td>
     </tr>
   </tbody>
 </table>
