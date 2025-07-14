@@ -74,4 +74,46 @@ footer {
 
 .footer-icons a:hover {
     color: #555;
+}/* === Navbar === */
+.navbar {
+    background-color: #ffca28 !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: #000 !important;
+    font-weight: 600;
+}
+
+/* === Žluté hlavní tlačítko === */
+.btn-primary {
+    background-color: #ffca28;
+    border-color: #ffca28;
+    color: #000;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #ffd54f;
+    border-color: #ffd54f;
+}
+
+/* === Světle zelené tlačítko "Save" === */
+.btn-success {
+    background-color: #aee571;
+    border-color: #aee571;
+    color: #000;
+}
+
+.btn-success:hover {
+    background-color: #c8f18f;
+    border-color: #c8f18f;
+}
+
+/* === Dropdown menu === */
+.dropdown-menu {
+    background-color: #fff9db;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
