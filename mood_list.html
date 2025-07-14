@@ -1,11 +1,31 @@
-{% extends 'fitness/base.html' %}
+{% extends "base.html" %}
+{% load static %}
+
 {% block content %}
-    <h2>Workout List</h2>
-    <ul>
-    {% for workout in workouts %}
-        <li>
-            <a href="{% url 'workout_detail' workout.pk %}">{{ workout }}</a>
+<div class="container mt-5">
+  <h2 class="mb-4">Mood List</h2>
+
+  <a href="{% url 'add_mood' %}" class="btn btn-primary mb-3">Add New Mood</a>
+
+  {% if moods %}
+    <ul class="list-group">
+      {% for mood in moods %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>
+            {{ mood.date }} – {{ mood.get_mood_level_display }}
+            {% if mood.notes %}
+              <br><small>{{ mood.notes }}</small>
+            {% endif %}
+          </span>
+          <span>
+            <a href="{% url 'edit_mood' mood.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="{% url 'delete_mood' mood.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+          </span>
         </li>
-    {% endfor %}
+      {% endfor %}
     </ul>
+  {% else %}
+    <p>No mood entries found.</p>
+  {% endif %}
+</div>
 {% endblock %}

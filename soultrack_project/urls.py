@@ -10,3 +10,4 @@ urlpatterns = [
 
 handler403 = "tracker.views.custom_403"
 handler404 = "tracker.views.custom_404"
+
