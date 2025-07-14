@@ -166,34 +166,26 @@ Segoe UI and fallback sans-serif
 ### 📱 Responsive Views
 
 <table>
-  <thead>
-    <tr>
-      <th style="text-align: left;">View</th>
-      <th style="text-align: left;">Screenshot</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Homepage</strong></td>
-      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mobile-main-screan.PNG" width="100" alt="Homepage Mobile" /></td>
-    </tr>
-    <tr>
-      <td><strong>Mood Entry</strong></td>
-      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-mobile.PNG" width="100" alt="Mood Entry Mobile" /></td>
-    </tr>
-    <tr>
-      <td><strong>Add Mood</strong></td>
-      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-add.PNG" width="100" alt="Add Mood Mobile" /></td>
-    </tr>
-    <tr>
-      <td><strong>Workout Log</strong></td>
-      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/calendar-cellphone.PNG" width="100" alt="Workout Log Mobile" /></td>
-    </tr>
-    <tr>
-      <td><strong>Workout History</strong></td>
-      <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/history-mobile.PNG" width="100" alt="Workout History Mobile" /></td>
-    </tr>
-  </tbody>
+  <tr>
+    <th style="text-align: center;">Homepage</th>
+    <th style="text-align: center;">Mood Entry</th>
+    <th style="text-align: center;">Add Mood</th>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mobile-main-screan.PNG" width="100" alt="Homepage Mobile" /></td>
+    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-mobile.PNG" width="100" alt="Mood Entry Mobile" /></td>
+    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/mood-add.PNG" width="100" alt="Add Mood Mobile" /></td>
+  </tr>
+  <tr>
+    <th style="text-align: center;">Workout Log</th>
+    <th style="text-align: center;">Workout History</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/calendar-cellphone.PNG" width="100" alt="Workout Log Mobile" /></td>
+    <td><img src="https://raw.githubusercontent.com/bobes81/Wellbeing-Tracker-App/main/static/readme_images/history-mobile.PNG" width="100" alt="Workout History Mobile" /></td>
+    <td></td>
+  </tr>
 </table>
 
 
