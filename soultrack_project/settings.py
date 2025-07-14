@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-secret-key")
 
 # Ensure DEBUG is set to False for production
-DEBUG = False
+DEBUG = True
 
 # Specify allowed hosts for production
 ALLOWED_HOSTS = ['*']  # Replace '*' with your specific Heroku URL if needed
