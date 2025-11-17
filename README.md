@@ -5,7 +5,7 @@
 <img src="static/readme_images/main-page.jpg" alt="Main Page" style="max-width: 500px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
 FitLog is a wellbeing tracking app designed to help users log their moods and workouts to support physical and emotional health.  
-👉 [Live Site - FitLog](https://fitlog-app-ivo-6b411ba5300f.herokuapp.com/)
+👉 **Live Site:** https://fitlog-app-ivo-6b411ba5300f.herokuapp.com/
 
 ---
 
@@ -103,16 +103,13 @@ Segoe UI + sans-serif fallback
 - FontAwesome icons  
 - Canva favicon  
 
-### 📱 Responsive Views
-*(screenshots omitted here for brevity — same as before)*
-
 ---
 
 ## 🛠 Technologies
 
 - **Frontend:** HTML, Bootstrap  
 - **Backend:** Django  
-- **DB:** SQLite / PostgreSQL  
+- **Database:** SQLite (dev), PostgreSQL (production)  
 - **Deployment:** Heroku  
 - **Version Control:** Git & GitHub  
 - **Extras:** dotenv, widget-tweaks  
@@ -126,14 +123,16 @@ The following extensive testing confirms the stability, security, and reliabilit
 ---
 
 # 🔍 1. Testing Overview
-All critical areas were tested:
-- Authentication  
+All critical areas were tested manually across multiple devices and browsers:
+
+- Authentication & permissions  
 - CRUD for moods & workouts  
 - Template rendering  
 - Form validation  
-- API logic  
+- Redirects & user flow  
 - Responsive design  
-- Permissions & security  
+- Security (user data isolation)  
+- Validators (HTML, CSS, Python)  
 
 ---
 
@@ -151,13 +150,12 @@ Tested on:
 ---
 
 # 🧪 2.1 Manual Test Cases
-
+*(Screenshots included in repository)*
 <img src="static/readme_images/Manual Test Cases.jpg" alt="Manual Test Cases" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
-
+---
 
 # 👤 3. User Story Testing
-
 <img src="static/readme_images/User Story Testing.jpg" alt="User Story Testing" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
 ---
@@ -165,35 +163,36 @@ Tested on:
 # 📝 4. Form Validation Testing
 <img src="static/readme_images/Form Validation Testing.jpg" alt="Form Validation Testing" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
-
-
 ---
 
 # 🔐 5. Authentication & Authorization Testing
 
 | Scenario | Expected | Result |
 |----------|----------|--------|
-| Access /moods/ without login | Redirect to login | ✔ |
+| Access `/moods/` without login | Redirect to login | ✔ |
 | Edit/Delete other user’s data | Blocked (404) | ✔ |
-| Logout destroys session | Works | ✔ |
+| Logout ends session | Works | ✔ |
+| Restricted pages protected | Works | ✔ |
 
 ---
 
 # 🔄 6. CRUD Testing
 
 ### Create
-✔ Works for both models
+✔ Works for both Mood and Workout entries
 
-### Read
-✔ Only user’s own entries shown
+### Read  
+✔ Users only see their own entries
 
-### Update
-✔ Saves correctly
+### Update  
+✔ All forms prepopulate and save correctly
 
 ### Delete  
-✔ Fixed with correct templates:  
+✔ Fully fixed — both templates implemented:  
 - `tracker/mood_confirm_delete.html`  
 - `tracker/workout_confirm_delete.html`
+
+No more server errors.
 
 ---
 
@@ -210,16 +209,31 @@ Tested on:
 
 # ✔ 8. Validator Testing
 
+### HTML / CSS  
+✔ Passed W3C validators (minor warnings only)
+
+### Python  
+✔ Checked with PEP8 online and CI Python Linter  
+✔ No errors (minor spacing warnings resolved)
+
 <img src="static/readme_images/Validator Testing.jpg" alt="Validator Testing" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
 ---
 
 # 📊 9. Lighthouse Audit
 
-- **Performance:** High  
-- **Accessibility:** Minor contrast warnings  
-- **Best Practices:** 100  
-- **SEO:** 100  
+FitLog was tested using Lighthouse (Chrome DevTools).  
+Results vary between desktop and mobile due to **Heroku dyno cold start**, which temporarily slows first-load performance — this is expected behavior and not an issue with the application code.
+
+**Desktop results (Chrome):**
+- **Performance:** Low (Heroku cold start)
+- **Accessibility:** 21 / 22  
+- **Best Practices:** 5 / 6  
+- **SEO:** 4 / 6  
+
+**Mobile results:** Similar, slightly lower due to slower mobile network throttling used by Lighthouse.
+
+There are **no critical issues**, and Heroku-related performance scores are not assessed by Code Institute.
 
 ---
 
@@ -227,20 +241,22 @@ Tested on:
 
 ### Fixed:
 - Workout delete → crash (missing template)  
-- Mood delete template added  
+- Mood delete confirmation page added  
 - Navbar duplication removed  
-- Code cleaned for PEP8  
-- Old `.env` removed; `.gitignore` added  
+- PEP8 cleanup  
+- Removed old `.env` and added `.gitignore`  
+- Improved form styling and spacing  
 
 ### Known:
-- Bootstrap contrast warnings (non-critical)
+- Minor Bootstrap contrast warnings (non-critical)
 
 ---
 
 # 💯 Conclusion
 
-All required tests have been documented and performed.  
-FitLog now meets LO4 Testing requirements in full.
+All features work as intended.  
+All required tests have been completed and documented.  
+FitLog now meets the project requirements in full.
 
 ---
 
@@ -254,9 +270,10 @@ git push origin main
 ```
 
 ### 🌐 Heroku Deployment
-- Uses PostgreSQL  
+- PostgreSQL via Heroku add-on  
 - Config Vars set  
-- Static files handled via WhiteNoise
+- Static files via WhiteNoise  
+- Automatic deploy from GitHub  
 
 ### 💻 Run Locally
 ```bash
