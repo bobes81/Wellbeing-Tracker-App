@@ -4,17 +4,24 @@ from django.utils.timezone import now
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
-from django.urls import reverse_lazy
 from .models import Workout, Mood
 from .forms import WorkoutForm, MoodForm
 import logging
 
-# Domovská stránka
+# -------------------------------
+#              HOME
+# -------------------------------
+
 def home(request):
+    """Render the homepage with the current timestamp."""
     return render(request, 'tracker/home.html', {'now': now()})
 
-# Registrování uživatele
+# -------------------------------
+#           REGISTRATION
+# -------------------------------
+
 def register(request):
+    """Register a new user and log them in automatically."""
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -25,15 +32,19 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
-# Výpis workoutů
+# -------------------------------
+#            WORKOUTS
+# -------------------------------
+
 @login_required
 def workout_list(request):
+    """Display all workouts belonging to the logged-in user."""
     workouts = Workout.objects.filter(user=request.user)
     return render(request, 'tracker/workout_list.html', {'workouts': workouts})
 
-# Přidání workoutu
 @login_required
 def add_workout(request):
+    """Create a new workout record."""
     if request.method == 'POST':
         form = WorkoutForm(request.POST)
         if form.is_valid():
@@ -45,9 +56,9 @@ def add_workout(request):
         form = WorkoutForm()
     return render(request, 'tracker/workout_form.html', {'form': form})
 
-# Úprava workoutu
 @login_required
 def edit_workout(request, pk):
+    """Edit an existing workout."""
     workout = get_object_or_404(Workout, pk=pk, user=request.user)
     if request.method == 'POST':
         form = WorkoutForm(request.POST, instance=workout)
@@ -58,18 +69,25 @@ def edit_workout(request, pk):
         form = WorkoutForm(instance=workout)
     return render(request, 'tracker/workout_form.html', {'form': form})
 
-# Smazání workoutu
 @login_required
 def delete_workout(request, pk):
+    """Delete a workout after user confirmation."""
     workout = get_object_or_404(Workout, pk=pk, user=request.user)
+
     if request.method == 'POST':
         workout.delete()
         return redirect('workout_list')
-    return render(request, 'tracker/delete_workout.html', {'workout': workout})
 
-# Výpis nálad
+    # Render confirmation template
+    return render(request, 'tracker/workout_confirm_delete.html', {'workout': workout})
+
+# -------------------------------
+#              MOODS
+# -------------------------------
+
 @login_required
 def mood_list(request):
+    """Display a list of all mood entries for the logged-in user."""
     try:
         moods = Mood.objects.filter(user=request.user).order_by('-date')
         return render(request, 'tracker/mood_list.html', {'moods': moods})
@@ -78,9 +96,9 @@ def mood_list(request):
         logger.error("Error in mood_list view: %s", str(e))
         raise
 
-# Přidání nálady
 @login_required
 def add_mood(request):
+    """Create a new mood entry."""
     if request.method == 'POST':
         form = MoodForm(request.POST)
         if form.is_valid():
@@ -92,9 +110,9 @@ def add_mood(request):
         form = MoodForm()
     return render(request, 'tracker/mood_form.html', {'form': form})
 
-# Úprava nálady
 @login_required
 def edit_mood(request, pk):
+    """Edit an existing mood entry."""
     mood = get_object_or_404(Mood, pk=pk, user=request.user)
     if request.method == 'POST':
         form = MoodForm(request.POST, instance=mood)
@@ -105,17 +123,23 @@ def edit_mood(request, pk):
         form = MoodForm(instance=mood)
     return render(request, 'tracker/mood_form.html', {'form': form})
 
-# Smazání nálady
 @login_required
 def delete_mood(request, pk):
+    """Delete a mood entry after confirmation."""
     mood = get_object_or_404(Mood, pk=pk, user=request.user)
+
     if request.method == 'POST':
         mood.delete()
         return redirect('mood_list')
+
     return render(request, 'tracker/mood_confirm_delete.html', {'mood': mood})
 
-# Seznam nálad jako CBV (volitelné použití)
+# -------------------------------
+#        CLASS-BASED VIEW
+# -------------------------------
+
 class MoodListView(ListView):
+    """Alternative class-based view for displaying mood entries."""
     model = Mood
     template_name = 'tracker/mood_list.html'
     context_object_name = 'moods'
@@ -123,9 +147,14 @@ class MoodListView(ListView):
     def get_queryset(self):
         return Mood.objects.filter(user=self.request.user).order_by('-date')
 
-# Error pages
+# -------------------------------
+#           ERROR PAGES
+# -------------------------------
+
 def custom_404(request, exception):
+    """Custom 404 error page."""
     return render(request, 'errors/404.html', status=404)
 
 def custom_403(request, exception):
+    """Custom 403 error page."""
     return render(request, 'errors/403.html', status=403)
