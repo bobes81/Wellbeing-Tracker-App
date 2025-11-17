@@ -152,52 +152,20 @@ Tested on:
 
 # 🧪 2.1 Manual Test Cases
 
-| Feature | Test Steps | Expected | Actual | Result |
-|--------|------------|----------|--------|--------|
-| Register | Fill form → submit | Redirect to home | Works | ✅ |
-| Login | Enter credentials | Logged in | Works | ✅ |
-| Logout | Click logout | Session cleared | Works | ✅ |
-| Add Mood | Submit valid form | Mood added | Works | ✅ |
-| Edit Mood | Change fields | Saved | Works | ✅ |
-| Delete Mood | Confirm deletion | Removed | Works | ✅ |
-| Add Workout | Submit form | Workout added | Works | ✅ |
-| Edit Workout | Modify entry | Updated | Works | ✅ |
-| Delete Workout | Confirm | Removed | Works after fix | ✅ |
-| 404 Page | Wrong URL | Custom page | Works | ✅ |
+<img src="static/readme_images/Manual Test Cases.jpg" alt="Manual Test Cases" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
----
+
 
 # 👤 3. User Story Testing
 
-### US1 – Register
-✔ Works
-
-### US2 – Log In
-✔ Works
-
-### US3 – CRUD Moods
-✔ All operations functional
-
-### US4 – CRUD Workouts
-✔ All operations functional after delete template fix
-
-### US5 – Responsive UI
-✔ Verified on all tested devices
+<img src="static/readme_images/User Story Testing.jpg" alt="User Story Testing" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
 ---
 
 # 📝 4. Form Validation Testing
+<img src="static/readme_images/Form Validation Testing.jpg" alt="Form Validation Testing" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
-### Mood Form
-- Empty fields → Errors (✔)
-- Valid input → Saved (✔)
 
-### Workout Form
-- Valid input → Saved (✔)
-- Bad/missing data → Errors (✔)
-
-### Security
-- CSRF tokens present on all forms (✔)
 
 ---
 
@@ -242,17 +210,7 @@ Tested on:
 
 # ✔ 8. Validator Testing
 
-### HTML
-No major errors
-
-### CSS
-Valid
-
-### Python (PEP8)
-Minor spacing resolved
-
-### JSHint
-No issues
+<img src="static/readme_images/Validator Testing.jpg" alt="Validator Testing" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
 
 ---
 
