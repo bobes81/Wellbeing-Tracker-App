@@ -26,10 +26,10 @@ FitLog is a wellbeing tracking app designed to help users log their moods and wo
 ## 🧠 User Experience Design
 
 ### 🎯 Strategy Plane
-The goal of FitLog is to provide users with a simple and intuitive tool to track their wellbeing through mood logging and workout tracking.
+The aim of FitLog is to offer a simple and intuitive tool to track wellbeing through mood logs and workout entries.
 
 ### 🗂 Agile Planning
-The project followed Agile methodology using GitHub Projects with epics, sprints, and user stories.
+The project was planned using GitHub Projects with epics, user stories, and iterative development.
 
 ### 🧩 Epics
 1. Base Setup  
@@ -51,11 +51,11 @@ The project followed Agile methodology using GitHub Projects with epics, sprints
 
 ## 📌 Scope Plane
 MVP includes:
-- Authentication  
+- User authentication  
 - Mood CRUD  
 - Workout CRUD  
-- Responsive layout  
 - Navigation  
+- Responsive layout  
 
 ---
 
@@ -69,7 +69,7 @@ MVP includes:
 
 ### 🧪 Features Left to Implement
 - Mood graphs  
-- Profile stats  
+- Profile statistics  
 - Motivational reminders  
 
 ---
@@ -77,7 +77,6 @@ MVP includes:
 ## 📐 Skeleton Plane
 
 ### 📲 Wireframes
-Mobile-first layout for all major pages:
 - Homepage  
 - Mood pages  
 - Workout pages  
@@ -93,10 +92,10 @@ Light, uplifting layout.
 ### 🌈 Colour Scheme
 - #fffbe6  
 - #fff3cd  
-- Bootstrap defaults  
+- Bootstrap palette  
 
 ### 🔤 Typography
-Segoe UI + sans-serif fallback
+Segoe UI + sans-serif
 
 ### 🖌 Imagery
 - AI illustration  
@@ -109,7 +108,7 @@ Segoe UI + sans-serif fallback
 
 - **Frontend:** HTML, Bootstrap  
 - **Backend:** Django  
-- **Database:** SQLite (dev), PostgreSQL (production)  
+- **Database:** SQLite (development), PostgreSQL (production)  
 - **Deployment:** Heroku  
 - **Version Control:** Git & GitHub  
 - **Extras:** dotenv, widget-tweaks  
@@ -118,21 +117,20 @@ Segoe UI + sans-serif fallback
 
 # ✅ Testing
 
-The following extensive testing confirms the stability, security, and reliability of FitLog.
+A full set of manual tests was completed to ensure functionality, stability, and reliability across devices.
 
 ---
 
 # 🔍 1. Testing Overview
-All critical areas were tested manually across multiple devices and browsers:
-
-- Authentication & permissions  
+Tested areas include:
+- Authentication  
 - CRUD for moods & workouts  
+- Validation  
+- Redirects  
+- Responsive layout  
+- User permissions  
 - Template rendering  
-- Form validation  
-- Redirects & user flow  
-- Responsive design  
-- Security (user data isolation)  
-- Validators (HTML, CSS, Python)  
+- Code validation  
 
 ---
 
@@ -150,18 +148,17 @@ Tested on:
 ---
 
 # 🧪 2.1 Manual Test Cases
-*(Screenshots included in repository)*
-<img src="static/readme_images/Manual Test Cases.jpg" alt="Manual Test Cases" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
+<img src="static/readme_images/Manual Test Cases.jpg" alt="Manual Test Cases" style="max-width: 250px;" />
 
 ---
 
 # 👤 3. User Story Testing
-<img src="static/readme_images/User Story Testing.jpg" alt="User Story Testing" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
+<img src="static/readme_images/User Story Testing.jpg" alt="User Story Testing" style="max-width: 250px;" />
 
 ---
 
 # 📝 4. Form Validation Testing
-<img src="static/readme_images/Form Validation Testing.jpg" alt="Form Validation Testing" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
+<img src="static/readme_images/Form Validation Testing.jpg" alt="Form Validation Testing" style="max-width: 250px;" />
 
 ---
 
@@ -170,33 +167,44 @@ Tested on:
 | Scenario | Expected | Result |
 |----------|----------|--------|
 | Access `/moods/` without login | Redirect to login | ✔ |
-| Edit/Delete other user’s data | Blocked (404) | ✔ |
+| Edit/Delete another user’s data | Blocked (404) | ✔ |
 | Logout ends session | Works | ✔ |
-| Restricted pages protected | Works | ✔ |
+| Restricted pages protected | ✔ |
 
 ---
 
 # 🔄 6. CRUD Testing
 
-### Create
-✔ Works for both Mood and Workout entries
+### Create  
+✔ Works for both Mood and Workout
 
 ### Read  
-✔ Users only see their own entries
+✔ Only user-owned entries displayed
 
 ### Update  
-✔ All forms prepopulate and save correctly
+✔ Forms prefill correctly and save
 
 ### Delete  
-✔ Fully fixed — both templates implemented:  
+✔ Fully functional with confirmation pages:  
 - `tracker/mood_confirm_delete.html`  
 - `tracker/workout_confirm_delete.html`
 
-No more server errors.
+---
+
+# 🧱 7. Custom Error Pages
+
+FitLog includes a fully implemented **custom 404 error page**, required by the project.
+
+- Works with `DEBUG=False`  
+- Registered in `fitlog_project/urls.py` via `handler404`  
+- Template located at `templates/404.html`  
+- Tested by navigating to a non-existent URL (returns custom page instead of Django error)
+
+This ensures a polished user experience even when pages do not exist.
 
 ---
 
-# 📱 7. Responsive Design Testing
+# 📱 8. Responsive Design Testing
 
 | Device | Browser | Result |
 |--------|---------|--------|
@@ -207,53 +215,55 @@ No more server errors.
 
 ---
 
-# ✔ 8. Validator Testing
+# ✔ 9. Validator Testing
 
-### HTML / CSS  
+### HTML/CSS  
 ✔ Passed W3C validators (minor warnings only)
 
 ### Python  
-✔ Checked with PEP8 online and CI Python Linter  
-✔ No errors (minor spacing warnings resolved)
-
-<img src="static/readme_images/Validator Testing.jpg" alt="Validator Testing" style="max-width: 250px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px;" />
+✔ Clean according to PEP8 online validator  
+<img src="static/readme_images/Validator Testing.jpg" alt="Validator Testing" style="max-width: 250px;" />
 
 ---
 
-# 📊 9. Lighthouse Audit
+# 📊 10. Lighthouse Audit
 
-FitLog was evaluated using Lighthouse (Chrome DevTools). Performance metrics on Heroku-based applications can fluctuate due to the platform’s dyno wake-up time, which adds a brief initial delay after periods of inactivity. This behaviour is expected and unrelated to the application’s code quality.
+FitLog was tested using Lighthouse in Chrome DevTools.  
+Heroku applications experience **dyno cold-start delays**, which can temporarily lower performance scores; this is expected behaviour and not related to code issues.
 
-**Desktop results (Chrome):**
-- **Performance:** Variable (due to Heroku cold-start behaviour)
+### Desktop Results:
+- **Performance:** Variable (affected by Heroku cold start)  
 - **Accessibility:** 21 / 22  
 - **Best Practices:** 5 / 6  
 - **SEO:** 4 / 6  
 
-Mobile results follow the same pattern, with natural variation caused by Lighthouse’s mobile throttling. 
-No critical issues were identified across categories.
+Mobile scores follow the same pattern, with minor variations from throttling.
+
+No critical issues were identified.
+
 ---
 
-# 🐞 10. Bugs & Fixes
+# 🐞 11. Bugs & Fixes
 
 ### Fixed:
-- Workout delete → crash (missing template)  
-- Mood delete confirmation page added  
-- Navbar duplication removed  
-- PEP8 cleanup  
-- Removed old `.env` and added `.gitignore`  
-- Improved form styling and spacing  
+- Workout delete crash  
+- Missing delete templates  
+- Navbar duplication  
+- PEP8 inconsistencies  
+- Removed old `.env`  
+- Added `.gitignore`  
+- Improved form spacing  
 
 ### Known:
-- Minor Bootstrap contrast warnings (non-critical)
+- Minor Bootstrap contrast warnings  
 
 ---
 
 # 💯 Conclusion
 
-All features work as intended.  
-All required tests have been completed and documented.  
-FitLog now meets the project requirements in full.
+FitLog functions as intended.  
+All testing has been completed.  
+All project requirements are met.  
 
 ---
 
@@ -262,15 +272,15 @@ FitLog now meets the project requirements in full.
 ### 🔁 Version Control
 ```bash
 git add .
-git commit -m "Updated README with full testing section and fixes"
+git commit -m "Updated README and added full testing section"
 git push origin main
 ```
 
 ### 🌐 Heroku Deployment
-- PostgreSQL via Heroku add-on  
+- PostgreSQL add-on  
 - Config Vars set  
-- Static files via WhiteNoise  
-- Automatic deploy from GitHub  
+- WhiteNoise for static files  
+- Deployment via GitHub  
 
 ### 💻 Run Locally
 ```bash
