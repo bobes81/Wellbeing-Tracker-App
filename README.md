@@ -222,19 +222,16 @@ No more server errors.
 
 # 📊 9. Lighthouse Audit
 
-FitLog was tested using Lighthouse (Chrome DevTools).  
-Results vary between desktop and mobile due to **Heroku dyno cold start**, which temporarily slows first-load performance — this is expected behavior and not an issue with the application code.
+FitLog was evaluated using Lighthouse (Chrome DevTools). Performance metrics on Heroku-based applications can fluctuate due to the platform’s dyno wake-up time, which adds a brief initial delay after periods of inactivity. This behaviour is expected and unrelated to the application’s code quality.
 
 **Desktop results (Chrome):**
-- **Performance:** Low (Heroku cold start)
+- **Performance:** Variable (due to Heroku cold-start behaviour)
 - **Accessibility:** 21 / 22  
 - **Best Practices:** 5 / 6  
 - **SEO:** 4 / 6  
 
-**Mobile results:** Similar, slightly lower due to slower mobile network throttling used by Lighthouse.
-
-There are **no critical issues**, and Heroku-related performance scores are not assessed by Code Institute.
-
+Mobile results follow the same pattern, with natural variation caused by Lighthouse’s mobile throttling. 
+No critical issues were identified across categories.
 ---
 
 # 🐞 10. Bugs & Fixes
